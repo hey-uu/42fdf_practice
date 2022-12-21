@@ -4,16 +4,16 @@
 #define	BYTESIZE	8
 #include <stdio.h>
 
-typedef struct s_data
+typedef struct s_img
 {
 	void	*img;
 	char	*addr;
 	int		bits_per_pixel;
 	int		line_len;
 	int		endian;
-}			t_data;
+}			t_img;
 
-void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
+void	my_mlx_pixel_put(t_img *data, int x, int y, int color)
 {
 	char	*dst;
 
@@ -25,7 +25,7 @@ int	main(void)
 {
 	void	*dev;
 	void	*win;
-	t_data	img;
+	t_img	img;
 
 	dev = mlx_init();
 	win = mlx_new_window(dev, XSIZE, YSIZE, "new window!");

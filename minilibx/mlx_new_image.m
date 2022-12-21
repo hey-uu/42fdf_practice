@@ -28,8 +28,8 @@ void    *mlx_new_image(mlx_ptr_t *mlx_ptr, int width, int height)
   newimg->vertexes[2] = width;  newimg->vertexes[3] = 0.0;
   newimg->vertexes[4] = width;  newimg->vertexes[5] = -height;
   newimg->vertexes[6] = 0.0;  newimg->vertexes[7] = -height;
-  newimg->buffer = malloc(UNIQ_BPP*width*height);
-  bzero(newimg->buffer, UNIQ_BPP*width*height);
+  newimg->buffer = malloc(UNIQ_bits_per_pixel*width*height);
+  bzero(newimg->buffer, UNIQ_bits_per_pixel*width*height);
 
   return (newimg);
 }
@@ -93,12 +93,12 @@ void    mlx_put_image_to_window(mlx_ptr_t *mlx_ptr, mlx_win_list_t *win_ptr, mlx
   win_ptr->nb_flush ++;
 }
 
-// assume here 32bpp little endian
+// assume here 32bits_per_pixel little endian
 
 char    *mlx_get_data_addr(mlx_img_list_t *img_ptr, int *bits_per_pixel, int *size_line, int *endian)
 {
-  *bits_per_pixel = UNIQ_BPP*8;
-  *size_line = img_ptr->width*UNIQ_BPP;
+  *bits_per_pixel = UNIQ_bits_per_pixel*8;
+  *size_line = img_ptr->width*UNIQ_bits_per_pixel;
   *endian = 0; // little endian for now on mac-intel
   return (img_ptr->buffer);
 }

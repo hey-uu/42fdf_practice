@@ -1,0 +1,9 @@
+{
+	"files.associations": {
+		"vector.h": "c",
+		"mlx.h": "c",
+		"camera.h": "c",
+		"matrix.h": "c",
+		"math.h": "c"
+	}
+}
