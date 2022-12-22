@@ -6,7 +6,7 @@
 /*   By: hyeyukim <hyeyukim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 14:32:57 by hyeyukim          #+#    #+#             */
-/*   Updated: 2022/12/22 22:46:37 by hyeyukim         ###   ########.fr       */
+/*   Updated: 2022/12/22 23:47:17 by hyeyukim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	init_object_location(t_world *world, t_map *map, int scale)
 void	init_camera_location(t_world *world)
 {
 	world->cam = ft_malloc(NULL, sizeof(t_camera));
-	world->cam->pos = (t_vec4){-CAMDIST, CAMDIST, CAMDIST, 1};
+	world->cam->pos = (t_vec4){300, 300, -300, 1};
 	world->cam->ori = (t_vec3){atan(sqrt(2)), 0, -M_PI_4};
 	world->cam->dist = vec3_norm(&world->cam->pos);
 }

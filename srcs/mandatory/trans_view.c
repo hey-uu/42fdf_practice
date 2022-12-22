@@ -6,7 +6,7 @@
 /*   By: hyeyukim <hyeyukim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/17 02:45:12 by hyeyukim          #+#    #+#             */
-/*   Updated: 2022/12/22 22:01:30 by hyeyukim         ###   ########.fr       */
+/*   Updated: 2022/12/22 23:39:09 by hyeyukim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,9 @@ void	init_transform_view(t_world *world, t_view *view)
 		(t_vec3){0, M_PI_2 - atan((double)1 / sqrt(2)), -M_PI_4});
 	// transform_object(\
 	// 	&view_mat2, &world->obj, &view->obj, \
+	// 	(t_vec3){0, M_PI_2 - atan((double)1 / sqrt(2)), M_PI_4});
+	// transform_object(\
+	// 	&inv_trl, &world->obj, &view->obj, \
 	// 	(t_vec3){0, M_PI_2 - atan((double)1 / sqrt(2)), M_PI_4});
 	converse_screen_coord(&view->obj, &view->scr);
 }

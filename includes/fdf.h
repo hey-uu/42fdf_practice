@@ -6,7 +6,7 @@
 /*   By: hyeyukim <hyeyukim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/16 20:57:20 by hyeyukim          #+#    #+#             */
-/*   Updated: 2022/12/22 22:47:26 by hyeyukim         ###   ########.fr       */
+/*   Updated: 2022/12/22 23:35:45 by hyeyukim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@
 # define M_HEIGHT 1080
 # define INTVL 30
 # define TITLE "mlx"
-# define CAMDIST 10000
+# define CAMDIST 100
 # define SCALE 20
 
 /*---------------------- TEMP ---------------------*/
