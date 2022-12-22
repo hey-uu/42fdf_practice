@@ -1,0 +1,49 @@
+mandatory files
+draw_line \
+			fdf_split_map \
+			main \
+			matrix \
+			menu \
+			mlx_utils \
+			process_input \
+			show_image \
+			show_map \
+			transform_project \
+			transform_view \
+			transform_world \
+			vector \
+			
+bonus files
+mandatory files
+main \
+			parse_input \
+			show_image \
+			show_map \
+			show_menu \
+			trans_project \
+			trans_view \
+			trans_world \
+			utils_line \
+			utils_matrix \
+			utils_mlx \
+			utils_split \
+			utils_vector \
+			
+bonus files
+mandatory files
+main \
+			parse_input \
+			show_image \
+			show_map \
+			show_menu \
+			trans_project \
+			trans_view \
+			trans_world \
+			utils_init \
+			utils_line \
+			utils_matrix \
+			utils_mlx \
+			utils_split \
+			utils_vector \
+			
+bonus files

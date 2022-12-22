@@ -6,7 +6,7 @@
 #    By: hyeyukim <hyeyukim@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/31 08:35:23 by hyeyukim          #+#    #+#              #
-#    Updated: 2022/12/20 19:43:30 by hyeyukim         ###   ########.fr        #
+#    Updated: 2022/12/22 13:46:25 by hyeyukim         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,33 +16,38 @@ AR = ar
 ARFLAGS = crs
 RM = rm
 RMFLAGS = -rf
-LIBFLAGS = -lm -lmlx -Lminilibx -framework OpenGL -framework AppKit
 
 # library
-LIB_NAME = libft.a
-LIB_DIR = libft
-LIB = $(LIB_DIR)/$(LIB_NAME)
-LIBFT_INC_DIR = libft/includes
+LIB_DIR = library
+### libft
+LIBFT_NAME = libft.a
+LIBFT_DIR = $(LIB_DIR)/libft
+LIBFT = $(LIBFT_DIR)/$(LIBFT_NAME)
+LIBFT_INC_DIR = $(LIBFT_DIR)/includes
+### library flags
+LIBFLAGS = -lm -lmlx -L./$(LIB_DIR)/minilibx -lft -L./$(LIBFT_DIR) \
+			-framework OpenGL -framework Appkit
 
 # file names
-MAN_FILE =	fdf_split_map \
-			image_utils \
-			main \
-			matrix \
-			menu \
-			process_input \
+MAN_FILE =	main \
+			parse_input \
 			show_image \
 			show_map \
-			transform_project \
-			transform_view \
-			transform_world \
-			vector3 \
-			vector4 \
-
+			show_menu \
+			trans_project \
+			trans_view \
+			trans_world \
+			utils_object \
+			utils_line \
+			utils_matrix \
+			utils_mlx \
+			utils_split \
+			utils_vector
 BON_FILE = 
 
 # directory files
-OBJ_DIR = objcs
+SRC_DIR = srcs
+OBJ_DIR = objs
 MAN_DIR = mandatory
 BON_DIR = bonus
 

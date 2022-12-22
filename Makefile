@@ -6,7 +6,7 @@
 #    By: hyeyukim <hyeyukim@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/07 11:46:51 by hyeyukim          #+#    #+#              #
-#    Updated: 2022/12/20 19:41:34 by hyeyukim         ###   ########.fr        #
+#    Updated: 2022/12/22 12:01:40 by hyeyukim         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ include config/variables_definition.mk
 .PHONY : all
 all : $(NAME)
 $(NAME) : $(MAN_OBJ)
-	make -C $(LIB_DIR) printf_gnl
+	make -C $(LIBFT_DIR) printf_gnl
 	$(CC) $(CFLAGS) $^ $(LIB) $(LIBFLAGS) -o $@
 
 include config/compile_rules.mk
@@ -31,4 +31,3 @@ fclean : clean
 re : 
 	make fclean
 	make all
-
