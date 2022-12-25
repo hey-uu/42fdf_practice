@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils_object.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hyeyukim <hyeyukim@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: hyeyun <hyeyun@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/22 13:00:18 by hyeyukim          #+#    #+#             */
-/*   Updated: 2022/12/22 20:42:12 by hyeyukim         ###   ########.fr       */
+/*   Updated: 2022/12/25 16:04:51 by hyeyun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	init_object(int w, int h, t_object *obj, t_map *map)
 		{
 			j = -1;
 			while (++j < w)
-				obj->pos[i][j] = (t_vec4){j, i, map->pos[i][j], 1};
+				obj->pos[i][j] = (t_vec4){{j, i, map->pos[i][j], 1}};
 		}
 	}
 }

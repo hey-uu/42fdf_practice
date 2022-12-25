@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils_matrix.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hyeyukim <hyeyukim@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: hyeyun <hyeyun@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 13:52:42 by hyeyukim          #+#    #+#             */
-/*   Updated: 2022/12/22 22:46:03 by hyeyukim         ###   ########.fr       */
+/*   Updated: 2022/12/25 16:06:08 by hyeyun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ t_vec4	mat4_vec_mul(const t_mat4 *mat, t_vec4 *vec)
 	while (++i < 4)
 	{
 		res.v[i] = vec4_dot_product(\
-		&(t_vec4){mat->m[i][0], mat->m[i][1], mat->m[i][2], mat->m[i][3]}, vec);
+		&(t_vec4){{mat->m[i][0], mat->m[i][1], mat->m[i][2], mat->m[i][3]}}, vec);
 	}
 	return (res);
 }
@@ -40,8 +40,8 @@ t_mat4	mat4_mul(const t_mat4 *a, const t_mat4 *b)
 		while (++j < 4)
 		{
 			c.m[i][j] = vec4_dot_product(\
-			&(t_vec4){a->m[i][0], a->m[i][1], a->m[i][2], a->m[i][3]}, \
-			&(t_vec4){b->m[0][j], b->m[1][j], b->m[2][j], b->m[3][j]});
+			&(t_vec4){{a->m[i][0], a->m[i][1], a->m[i][2], a->m[i][3]}}, \
+			&(t_vec4){{b->m[0][j], b->m[1][j], b->m[2][j], b->m[3][j]}});
 		}
 	}
 	return (c);

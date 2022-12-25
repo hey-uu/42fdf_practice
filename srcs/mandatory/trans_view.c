@@ -3,15 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   trans_view.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hyeyukim <hyeyukim@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: hyeyun <hyeyun@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/17 02:45:12 by hyeyukim          #+#    #+#             */
-/*   Updated: 2022/12/22 23:39:09 by hyeyukim         ###   ########.fr       */
+/*   Updated: 2022/12/25 16:03:52 by hyeyun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
 #include "matrix.h"
+#include "fdf.h"
 
 int	round_to_int(double x)
 {
@@ -47,26 +47,17 @@ void	converse_screen_coord(t_object *obj, t_screen *scr)
 	}
 }
 
-
 void	init_transform_view(t_world *world, t_view *view)
 {
 	const t_mat4	inv_rot = inv_rot_mat(&world->cam->ori);
 	const t_mat4	inv_trl = inv_transl_mat(&world->cam->pos);
 	const t_mat4	view_mat = mat4_mul(&inv_rot, &inv_trl);
-	// const t_mat4	view_mat2 = {{{1, 0, 0, 0}, {0, 1, 0, 0}, \
-	// 	{0, 0, 1, 0}, {0, 0, 0, 1}}};
 
 
 	view->cam = world->cam;
 	init_object(world->obj.w, world->obj.h, &view->obj, 0);
 	transform_object(\
 		&view_mat, &world->obj, &view->obj, \
-		(t_vec3){0, M_PI_2 - atan((double)1 / sqrt(2)), -M_PI_4});
-	// transform_object(\
-	// 	&view_mat2, &world->obj, &view->obj, \
-	// 	(t_vec3){0, M_PI_2 - atan((double)1 / sqrt(2)), M_PI_4});
-	// transform_object(\
-	// 	&inv_trl, &world->obj, &view->obj, \
-	// 	(t_vec3){0, M_PI_2 - atan((double)1 / sqrt(2)), M_PI_4});
+		(t_vec3){{0, M_PI_2 - atan((double)1 / sqrt(2)), -M_PI_4}});
 	converse_screen_coord(&view->obj, &view->scr);
 }

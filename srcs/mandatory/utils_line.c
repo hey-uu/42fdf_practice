@@ -42,22 +42,22 @@ void	draw_low_line(const t_two_points *s, t_img *img)
 		// 		mlx_pixel_put_image(img, s->q->x + i, s->q->y + j, 0xff0000);
 		// 		mlx_pixel_put_image(img, s->p->x + i, s->p->y + j, 0xff0000);
 		// 	}
-	if (s->p->z < 0)
-		for (int i = -2 ; i < 3 ; i++)
-			for (int j = -2 ; j < 3 ; j++)
-				mlx_pixel_put_image(img, s->p->x + i, s->p->y + j, 0xff0000);
-	if (s->q->z < 0)
-		for (int i = -2 ; i < 3 ; i++)
-			for (int j = -2 ; j < 3 ; j++)
-				mlx_pixel_put_image(img, s->q->x + i, s->q->y + j, 0xff0000);
-	if (s->p->z > 0)
-		for (int i = -2 ; i < 3 ; i++)
-			for (int j = -2 ; j < 3 ; j++)
-				mlx_pixel_put_image(img, s->p->x + i, s->p->y + j, 0x0000ff);
-	if (s->q->z > 0)
-		for (int i = -2 ; i < 3 ; i++)
-			for (int j = -2 ; j < 3 ; j++)
-				mlx_pixel_put_image(img, s->q->x + i, s->q->y + j, 0x0000ff);
+	// if (s->p->z < 0)
+	// 	for (int i = -1 ; i < 2 ; i++)
+	// 		for (int j = -1 ; j < 2 ; j++)
+	// 			mlx_pixel_put_image(img, s->p->x + i, s->p->y + j, 0xff0000);
+	// if (s->q->z < 0)
+	// 	for (int i = -1 ; i < 2 ; i++)
+	// 		for (int j = -1 ; j < 2 ; j++)
+	// 			mlx_pixel_put_image(img, s->q->x + i, s->q->y + j, 0xff0000);
+	// if (s->p->z > 0)
+	// 	for (int i = -1 ; i < 2 ; i++)
+	// 		for (int j = -1 ; j < 2 ; j++)
+	// 			mlx_pixel_put_image(img, s->p->x + i, s->p->y + j, 0x0000ff);
+	// if (s->q->z > 0)
+	// 	for (int i = -1 ; i < 2 ; i++)
+	// 		for (int j = -1 ; j < 2 ; j++)
+	// 			mlx_pixel_put_image(img, s->q->x + i, s->q->y + j, 0x0000ff);
 }
 
 void	draw_high_line(const t_two_points *s, t_img *img)
@@ -84,22 +84,22 @@ void	draw_high_line(const t_two_points *s, t_img *img)
 			diff += 2 * s->abs_dx;
 		pos[1] += 1;
 	}
-	if (s->p->z < 0)
-		for (int i = -2 ; i < 3 ; i++)
-			for (int j = -2 ; j < 3 ; j++)
-				mlx_pixel_put_image(img, s->p->x + i, s->p->y + j, 0xff0000);
-	if (s->q->z < 0)
-		for (int i = -2 ; i < 3 ; i++)
-			for (int j = -2 ; j < 3 ; j++)
-				mlx_pixel_put_image(img, s->q->x + i, s->q->y + j, 0xff0000);
-	if (s->p->z > 0)
-		for (int i = -2 ; i < 3 ; i++)
-			for (int j = -2 ; j < 3 ; j++)
-				mlx_pixel_put_image(img, s->p->x + i, s->p->y + j, 0x0000ff);
-	if (s->q->z > 0)
-		for (int i = -2 ; i < 3 ; i++)
-			for (int j = -2 ; j < 3 ; j++)
-				mlx_pixel_put_image(img, s->q->x + i, s->q->y + j, 0x0000ff);
+	// if (s->p->z < 0)
+	// 	for (int i = -1 ; i < 2 ; i++)
+	// 		for (int j = -1 ; j < 2 ; j++)
+	// 			mlx_pixel_put_image(img, s->p->x + i, s->p->y + j, 0xff0000);
+	// if (s->q->z < 0)
+	// 	for (int i = -1 ; i < 2 ; i++)
+	// 		for (int j = -1 ; j < 2 ; j++)
+	// 			mlx_pixel_put_image(img, s->q->x + i, s->q->y + j, 0xff0000);
+	// if (s->p->z > 0)
+	// 	for (int i = -1 ; i < 2 ; i++)
+	// 		for (int j = -1 ; j < 2 ; j++)
+	// 			mlx_pixel_put_image(img, s->p->x + i, s->p->y + j, 0x0000ff);
+	// if (s->q->z > 0)
+	// 	for (int i = -1 ; i < 2 ; i++)
+	// 		for (int j = -1 ; j < 2 ; j++)
+	// 			mlx_pixel_put_image(img, s->q->x + i, s->q->y + j, 0x0000ff);
 }
 
 void	mlx_draw_line(const t_point *p, const t_point *q, t_img *img)

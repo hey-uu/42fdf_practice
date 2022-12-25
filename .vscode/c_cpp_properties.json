@@ -5,7 +5,9 @@
             "includePath": [
                 "${workspaceFolder}/includes",
                 "${workspaceFolder}/library/libft/includes",
-                "${workspaceFolder}/libfary/minilibx"
+                "${workspaceFolder}/library/minilibx",
+                "${workspaceFolder}/library/minilibx",
+                "/usr/include"
             ],
             "defines": [],
             "macFrameworkPath": [

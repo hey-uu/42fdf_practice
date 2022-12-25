@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fdf.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hyeyukim <hyeyukim@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: hyeyun <hyeyun@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/16 20:57:20 by hyeyukim          #+#    #+#             */
-/*   Updated: 2022/12/22 23:35:45 by hyeyukim         ###   ########.fr       */
+/*   Updated: 2022/12/26 00:46:11 by hyeyun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,15 +32,9 @@
 # define M_HEIGHT 1080
 # define INTVL 30
 # define TITLE "mlx"
-# define CAMDIST 100
-# define SCALE 20
+# define CAMDIST 20
+# define SCALE 5
 
-/*---------------------- TEMP ---------------------*/
-# define PRINT_VIEW \
-	printf("x : %d, y : %d, z : %d\n", \
-	(int)obj->pos[j][i].v[0], \
-	(int)obj->pos[j][i].v[1], \
-	(int)obj->pos[j][i].v[2]);
 
 /*------------- STRUCT DECLARATIONS --------------*/
 
