@@ -1,29 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   utils_vector3.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hyeyun <hyeyun@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/27 14:00:12 by hyeyukim          #+#    #+#             */
-/*   Updated: 2022/12/26 15:51:55 by hyeyun           ###   ########.fr       */
+/*   Created: 2022/12/20 12:19:10 by hyeyukim          #+#    #+#             */
+/*   Updated: 2022/12/26 16:11:31 by hyeyun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "vector.h"
 
-void	*ft_calloc(size_t cnt, size_t size)
+double	vec3_norm(t_vec4 *u)
 {
-	unsigned char	*new;
-	size_t			total;
-	size_t			i;
+	double	res;
+	int		i;
 
-	if (cnt > 0 && size > FT_SIZE_MAX / cnt)
-		ft_exit(NULL, BADALLOC);
-	total = cnt * size;
-	new = ft_malloc(total);
-	i = 0;
-	while (i < total)
-		new[i++] = 0;
-	return ((void *) new);
+	res = 0;
+	i = -1;
+	while (++i < 3)
+	{
+		res += u->v[i] * u->v[i];
+	}
+	return (sqrt(res));
+}
+
+t_vec4	vec3_normalize(t_vec4 *v)
+{
+	t_vec4			u;
+	const double	norm = vec3_norm(v);
+	int				i;
+
+	i = -1;
+	while (++i < 3)
+		u.v[i] = v->v[i] / norm;
+	return (u);
 }

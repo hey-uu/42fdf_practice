@@ -6,7 +6,7 @@
 #    By: hyeyun <hyeyun@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/31 08:35:23 by hyeyukim          #+#    #+#              #
-#    Updated: 2022/12/26 11:47:33 by hyeyun           ###   ########.fr        #
+#    Updated: 2022/12/26 22:16:08 by hyeyun           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,9 +37,12 @@ MAN_FILE =	color \
 			mlx_draw \
 			mlx_utils \
 			parse_input \
-			transform \
+			transform1 \
+			transform2 \
 			utils_matrix \
-			utils_vector
+			utils_vector3 \
+			utils_vector4 \
+			rotate
 BON_FILE = 
 
 # directory files

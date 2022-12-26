@@ -6,7 +6,7 @@
 /*   By: hyeyun <hyeyun@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/26 02:26:40 by hyeyun            #+#    #+#             */
-/*   Updated: 2022/12/26 14:14:55 by hyeyun           ###   ########.fr       */
+/*   Updated: 2022/12/26 18:49:18 by hyeyun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ int get_vertex_color(int max, int min, int z)
 	double  ratio;
 
 	ratio = (double)(max - z) / (max - min);
-	printf("max : %d, min: %d, z: %d, ratio : %f\n", max, min, z, ratio);
 	if (ratio < 0.2)
 		return (YELLOW);
 	if (ratio < 0.4)
@@ -28,7 +27,7 @@ int get_vertex_color(int max, int min, int z)
 		return (MINT);
 	if (ratio < 0.8)
 		return (SKYBLUE);
-	return (BLUE);
+	return (PURPLE);
 }
 
 void	set_vertex_color(t_vec4 **p, t_data *s)
@@ -45,7 +44,6 @@ void	set_vertex_color(t_vec4 **p, t_data *s)
 		while (++j < s->w)
 		{
 			s->color[i][j] = get_vertex_color(s->max, s->min, (int)p[i][j].v[2]);
-			printf("colors : %x\n", s->color[i][j]);
 		}
 	}
 }

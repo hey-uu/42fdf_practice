@@ -6,7 +6,7 @@
 /*   By: hyeyun <hyeyun@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/26 04:14:45 by hyeyun            #+#    #+#             */
-/*   Updated: 2022/12/26 12:35:41 by hyeyun           ###   ########.fr       */
+/*   Updated: 2022/12/26 16:12:01 by hyeyun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,18 +60,4 @@ t_mat4	mat4_mul(const t_mat4 *a, const t_mat4 *b)
 		}
 	}
 	return (c);
-}
-
-void  mat4_print(const t_mat4 *a)
-{
-    int i, j;
-
-    for (i = 0 ; i < 4 ; i++)
-    {
-        for (j = 0 ; j < 4 ; j++)
-        {
-            printf("%f ", a->m[i][j]);
-        }
-        printf("\n");
-    }
 }

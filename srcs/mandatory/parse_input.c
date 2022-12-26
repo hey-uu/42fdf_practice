@@ -6,7 +6,7 @@
 /*   By: hyeyun <hyeyun@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/16 21:04:30 by hyeyukim          #+#    #+#             */
-/*   Updated: 2022/12/26 15:29:19 by hyeyun           ###   ########.fr       */
+/*   Updated: 2022/12/26 15:53:01 by hyeyun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	store_data_into_map(t_data *data, t_split_node *list)
 	{
 		data->vertex[i] = ft_malloc(sizeof(t_vec4) * data->w);
         j = 0;
-		while (j < data->w && j < list->count)
+		while (j < data->w && j < list->cnt)
 		{
 			x = ft_atoi(list->val[j]);
             data->max = (x > data->max) * x + (x <= data->max) * data->max;
@@ -34,7 +34,7 @@ void	store_data_into_map(t_data *data, t_split_node *list)
 			free(list->val[j++]);
 		}
 		tmp = list;
-		list = list->next;
+		list = list->nxt;
         free(tmp->val);
 		free(tmp);
 	}
@@ -46,7 +46,7 @@ t_split_node	*fdf_make_new_node(char *line)
 
 	new = ft_malloc(sizeof(t_split_node));
 	fdf_split_map_line(new, line, ' ');
-	new->next = NULL;
+	new->nxt = NULL;
 	return (new);
 }
 
@@ -56,7 +56,7 @@ void	fdf_add_node_front(t_split_node **head, t_split_node *new)
 		*head = new;
 	else
 	{
-		new->next = *head;
+		new->nxt = *head;
 		*head = new;
 	}
 }
@@ -76,8 +76,8 @@ void	parse_map(t_data *data, int fd)
 		new = fdf_make_new_node(line);
 		free(line);
 		fdf_add_node_front(&split_list, new);
-		if (new->count > data->w)
-			data->w = new->count;
+		if (new->cnt > data->w)
+			data->w = new->cnt;
 		data->h++;
 	}
 	store_data_into_map(data, split_list);

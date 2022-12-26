@@ -12,6 +12,7 @@
         "limits": "c",
         "*.tcc": "c",
         "type_traits": "c",
-        "color.h": "c"
+        "color.h": "c",
+        "get_next_line.h": "c"
     }
 }

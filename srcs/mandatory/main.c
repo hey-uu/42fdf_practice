@@ -6,12 +6,11 @@
 /*   By: hyeyun <hyeyun@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/16 20:59:16 by hyeyukim          #+#    #+#             */
-/*   Updated: 2022/12/26 02:47:38 by hyeyun           ###   ########.fr       */
+/*   Updated: 2022/12/26 16:15:17 by hyeyun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
-#include "fdf_test.h"
 #include "mlx.h"
 
 int	main(int argc, char **argv)

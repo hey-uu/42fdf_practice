@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils_split.c                                      :+:      :+:    :+:   */
+/*   fdf_split.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hyeyun <hyeyun@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/16 22:20:56 by hyeyukim          #+#    #+#             */
-/*   Updated: 2022/12/26 11:27:36 by hyeyun           ###   ########.fr       */
+/*   Updated: 2022/12/26 15:51:55 by hyeyun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ void	fdf_split_map_line(t_split_node *node, char const *s, char c)
 {
 	if (!s)
 		return ;
-	node->count = get_wordcount(s, c);
-	node->val = ft_malloc(sizeof(char *) * (node->count + 1));
+	node->cnt = get_wordcount(s, c);
+	node->val = ft_malloc(sizeof(char *) * (node->cnt + 1));
 	fill_split(node->val, s, c);
 }

@@ -6,14 +6,13 @@
 /*   By: hyeyun <hyeyun@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 12:17:02 by hyeyukim          #+#    #+#             */
-/*   Updated: 2022/12/26 14:16:44 by hyeyun           ###   ########.fr       */
+/*   Updated: 2022/12/26 22:05:49 by hyeyun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 #include "mlx.h"
 #include "color.h"
-
 
 void	draw_low_line(const t_two_points *s, t_img *img)
 {
@@ -94,8 +93,7 @@ void	mlx_draw_line(const t_point *p, const t_point *q, t_img *img)
 	}
 }
 
-
-void    mlx_draw_object_on_image(t_point **scr, t_img *img, int h, int w)
+void	mlx_draw_object_on_image(t_point **scr, t_img *img, int h, int w)
 {
 	int	i;
 	int	j;
@@ -114,16 +112,13 @@ void    mlx_draw_object_on_image(t_point **scr, t_img *img, int h, int w)
 	}
 }
 
-void    mlx_draw_axis_on_image(t_img *img)
+void	mlx_draw_axis_on_image(t_point axis[6][2], t_img *img)
 {
-	static t_point  mid_top = (t_point){I_WIDTH / 2, 0, 0, RED};
-	static t_point  mid_bottom = (t_point){I_WIDTH / 2, I_HEIGHT, 0, RED};
-	static t_point  mid_left = (t_point){0, I_HEIGHT / 2, 0, RED};
-	static t_point	mid_right = (t_point){I_WIDTH, I_HEIGHT / 2, 0, RED};
-	static t_point	left_top = (t_point){0, 0, 0, RED};
-	static t_point	left_bottom = (t_point){0, I_HEIGHT, 0, RED};
-	
-	mlx_draw_line(&mid_top, &mid_bottom, img);
-	mlx_draw_line(&mid_left, &mid_right, img);
-	mlx_draw_line(&left_top, &left_bottom, img);
+	int	i;
+
+	i = -1;
+	while (++i < 6)
+		mlx_draw_line(&axis[i][0], &axis[i][1], img);
+	mlx_draw_line(&(t_point){0, 0, WHITE}, \
+				&(t_point){0, I_H, WHITE}, img);
 }

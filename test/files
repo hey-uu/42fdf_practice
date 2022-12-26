@@ -6,9 +6,11 @@ color \
 			mlx_draw \
 			mlx_utils \
 			parse_input \
-			transform \
+			transform1 \
+			transform2 \
 			utils_matrix \
-			utils_vector \
+			utils_vector3 \
+			utils_vector4 \
 			
 bonus files
 color \
@@ -18,7 +20,9 @@ color \
 			mlx_draw \
 			mlx_utils \
 			parse_input \
-			transform \
+			transform1 \
+			transform2 \
 			utils_matrix \
-			utils_vector \
+			utils_vector3 \
+			utils_vector4 \
 			

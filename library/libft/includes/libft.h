@@ -6,7 +6,7 @@
 /*   By: hyeyun <hyeyun@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 14:04:52 by hyeyukim          #+#    #+#             */
-/*   Updated: 2022/12/26 01:09:49 by hyeyun           ###   ########.fr       */
+/*   Updated: 2022/12/26 15:51:55 by hyeyun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ typedef enum e_bool
 
 int		ft_atoi(const char *str);
 void	ft_bzero(void *s, size_t n);
-void	*ft_calloc(size_t count, size_t size);
+void	*ft_calloc(size_t cnt, size_t size);
 int		ft_isalnum(int c);
 int		ft_isalpha(int c);
 int		ft_isascii(int c);
