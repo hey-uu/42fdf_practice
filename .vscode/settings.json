@@ -1,0 +1,17 @@
+{
+	"files.associations": {
+        "fdf.h": "c",
+        "world.h": "c",
+        "matrix.h": "c",
+        "mlx.h": "c",
+        "math.h": "c",
+        "keycode.h": "c",
+        "keysym.h": "c",
+        "keysymdef.h": "c",
+        "libft.h": "c",
+        "limits": "c",
+        "*.tcc": "c",
+        "type_traits": "c",
+        "color.h": "c"
+    }
+}

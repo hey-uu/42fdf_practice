@@ -1,0 +1,24 @@
+mandatory files
+color \
+			fdf_split \
+			initialize \
+			main \
+			mlx_draw \
+			mlx_utils \
+			parse_input \
+			transform \
+			utils_matrix \
+			utils_vector \
+			
+bonus files
+color \
+			fdf_split \
+			initialize \
+			main \
+			mlx_draw \
+			mlx_utils \
+			parse_input \
+			transform \
+			utils_matrix \
+			utils_vector \
+			
