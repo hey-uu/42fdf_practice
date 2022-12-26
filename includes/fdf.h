@@ -6,7 +6,7 @@
 /*   By: hyeyun <hyeyun@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/16 20:57:20 by hyeyukim          #+#    #+#             */
-/*   Updated: 2022/12/26 22:16:47 by hyeyun           ###   ########.fr       */
+/*   Updated: 2022/12/27 00:59:18 by hyeyun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,22 +37,14 @@
 # ifndef FT_INT_MIN
 #   define FT_INT_MIN -2147483648
 # endif
+# define FT_PI_27 0.11635528346628863846
 
 /*------------- STRUCT DECLARATIONS --------------*/
 
 typedef enum e_change
 {
-	CAM_INIT0 = 0,
-	CAM_INIT1 = 1,
-	CAM_INIT2 = 2,
-	CAM_INIT3 = 3,
-	CAM_INIT4 = 4,
-	CAM_INIT5 = 5,
-	CAM_INIT6 = 6,
-	CAM_INIT7 = 7,
-	CAM_CHANGE = 8,
-	OBJ_INIT = 9,
-	OBJ_CHANGE = 10,
+	CAM_CHANGE = 0,
+	OBJ_CHANGE = 1,
 }   t_change;
 
 // a node of linked list. each node stores a line of given map
@@ -181,7 +173,6 @@ void	init_object(t_object *obj, int map_h, int map_w);
 void	init_camera_to_isometric_view(t_camera *cam, int opt);
 
 // rotate
-void	rotate_world_coord(t_object *obj, double theta, int axis);
-void	rotate_local_coord(t_object *obj, double theta, int axis);
+void	rotate(t_object *obj, double theta, int axis);
 
 #endif

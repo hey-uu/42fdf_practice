@@ -6,7 +6,7 @@
 /*   By: hyeyun <hyeyun@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/26 01:21:35 by hyeyun            #+#    #+#             */
-/*   Updated: 2022/12/26 21:52:48 by hyeyun           ###   ########.fr       */
+/*   Updated: 2022/12/27 00:33:08 by hyeyun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ void	init_transformation(t_data *s)
 {	
 	init_object(&s->obj, s->h, s->w);
 	init_camera_to_isometric_view(&s->cam, 0);
+    camera_get_view_vectors(&s->cam);
 	transform_world(&s->obj, s->h, s->w, &s->m_world);
 	transform_view(&s->cam, &s->m_view);
 	transform_viewport(&s->m_viewport);

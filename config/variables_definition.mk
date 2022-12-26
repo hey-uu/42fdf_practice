@@ -6,7 +6,7 @@
 #    By: hyeyun <hyeyun@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/31 08:35:23 by hyeyukim          #+#    #+#              #
-#    Updated: 2022/12/26 22:16:08 by hyeyun           ###   ########.fr        #
+#    Updated: 2022/12/27 00:38:11 by hyeyun           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,6 +36,7 @@ MAN_FILE =	color \
 			main \
 			mlx_draw \
 			mlx_utils \
+			mlx_key_hooks \
 			parse_input \
 			transform1 \
 			transform2 \

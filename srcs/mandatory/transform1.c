@@ -6,7 +6,7 @@
 /*   By: hyeyun <hyeyun@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/26 02:54:26 by hyeyun            #+#    #+#             */
-/*   Updated: 2022/12/26 21:53:11 by hyeyun           ###   ########.fr       */
+/*   Updated: 2022/12/27 00:33:52 by hyeyun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,6 @@ void	init_camera_to_isometric_view(t_camera *cam, int opt)
 	
 	cam->pos = pos[opt]; 
 	cam->look_at = (t_vec4){{0, 0, 0, 1}};
-	camera_get_view_vectors(cam);	
 }
 
 void	transform_view(t_camera *cam, t_mat4 *m_view)
@@ -55,19 +54,14 @@ void	transform_view(t_camera *cam, t_mat4 *m_view)
 
 void	transform(t_data *s, int opt)
 {
-	if (opt >= CAM_INIT0 && opt <= CAM_CHANGE)
+	if (opt == CAM_CHANGE)
 	{
-		if (opt < CAM_CHANGE)
-			init_camera_to_isometric_view(&s->cam, opt);
-		else
-			camera_get_view_vectors(&s->cam);
+		camera_get_view_vectors(&s->cam);
 		transform_view(&s->cam, &s->m_view);
 		s->m_show = mat4_mul(&s->m_viewport, &s->m_view);
 	}
-	else
+	else if (opt == OBJ_CHANGE)
 	{
-		if (opt == OBJ_INIT)
-			init_object(&s->obj, s->h, s->w);
 		transform_world(&s->obj, s->h, s->w, &s->m_world);
 	}
 	s->m = mat4_mul(&s->m_show, &s->m_world);
