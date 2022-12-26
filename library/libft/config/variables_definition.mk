@@ -6,7 +6,7 @@
 #    By: hyeyukim <hyeyukim@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/31 08:35:23 by hyeyukim          #+#    #+#              #
-#    Updated: 2022/11/16 01:52:55 by hyeyukim         ###   ########.fr        #
+#    Updated: 2022/12/27 01:41:24 by hyeyukim         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -55,7 +55,8 @@ LIBFT_FILE = ft_atoi \
 		ft_push_swap_atol \
 		ft_exit \
 		ft_malloc \
-		ft_max
+		ft_max \
+		ft_abs
 		
 PRINTF_FILE = ft_printf \
 			printf_utils \

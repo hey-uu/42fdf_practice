@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fdf.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hyeyun <hyeyun@student.42.fr>              +#+  +:+       +#+        */
+/*   By: hyeyukim <hyeyukim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/16 20:57:20 by hyeyukim          #+#    #+#             */
-/*   Updated: 2022/12/27 00:59:18 by hyeyun           ###   ########.fr       */
+/*   Updated: 2022/12/27 01:44:42 by hyeyukim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,9 @@
 # ifndef FT_INT_MIN
 #   define FT_INT_MIN -2147483648
 # endif
-# define FT_PI_27 0.11635528346628863846
+# define FT_PI27 0.11635528346628863846
+# define I_MAT \
+(t_mat4){{{1, 0, 0, 0}, {0, 1, 0, 0}, {0, 0, 1, 0}, {0, 0, 0, 1}}}
 
 /*------------- STRUCT DECLARATIONS --------------*/
 
@@ -55,14 +57,7 @@ typedef struct s_split_node
 	struct s_split_node	*nxt;
 }	t_split_node;
 
-// parsed map
-typedef struct s_map
-{
-	t_vec4	**vertex;
-	int		width;
-	int		height;
-}	t_map;
-
+// mlx
 typedef struct s_dev
 {
 	void	*mlx;
@@ -116,6 +111,8 @@ typedef struct s_camera
 
 typedef struct s_data
 {
+	t_dev		dev;
+	t_img		img;
 	int			w;
 	int			h;
 	int			max;
@@ -124,8 +121,6 @@ typedef struct s_data
 	int			**color;
 	t_point		**screen;
 	t_point		axis[6][2];
-	t_dev		dev;
-	t_img		img;
 	t_object	obj;
 	t_camera	cam;
 	t_mat4		m_world;
@@ -138,26 +133,28 @@ typedef struct s_data
 
 
 /*-------------- FUNCTION PROTOTYPES -------------*/
-// main
+// process input
 void	process_input(int argc, char **argv, t_data *data);
 void	fdf_split_map_line(t_split_node *node, char const *s, char c);
+
+// initialize
 void	initialize_setting(t_data *data);
-void	show_menu(t_dev *dev);
+void	init_object(t_object *obj, int map_h, int map_w);
 
 // mlx_utils
+void	show_menu(t_dev *dev);
 void	mlx_pixel_put_image(t_img *img, int x, int y, int color);
 int		key_hooks(int key, t_data *data);
 int		render_next_frame(t_data *data);
 
 // mlx_draw
 void	mlx_draw_line(const t_point *p, const t_point *q, t_img *img);
-void	mlx_draw_object_on_image(t_point **scr, t_img *img, int h, int w);
-void	mlx_draw_axis_on_image(t_point axis[6][2], t_img *img);
-
+void	mlx_draw_object(t_point **scr, t_img *img, int h, int w);
+void	mlx_draw_axis(t_point axis[6][2], t_img *img);
 
 // color
-int		get_color(const t_point *p, const t_point *q, int x);
 void	set_vertex_color(t_vec4 **p, t_data *s);
+int		get_color(const t_point *p, const t_point *q, int x);
 
 // transform
 void	camera_get_view_vectors(t_camera *cam);

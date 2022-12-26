@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   transform2.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hyeyun <hyeyun@student.42.fr>              +#+  +:+       +#+        */
+/*   By: hyeyukim <hyeyukim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/26 16:14:13 by hyeyun            #+#    #+#             */
-/*   Updated: 2022/12/26 21:14:55 by hyeyun           ###   ########.fr       */
+/*   Created: 2022/12/27 01:37:21 by hyeyukim          #+#    #+#             */
+/*   Updated: 2022/12/27 01:59:43 by hyeyukim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,8 +59,8 @@ void	transform_axis(t_point axis[6][2], t_mat4 *m)
 					{{{W_W, 0, 0, 1}}, {{0, W_H, 0, 1}}, {{0, 0, W_W, 1}}, \
 					{{-W_W, 0, 0, 1}}, {{0, -W_H, 0, 1}}, {{0, 0, -W_W, 1}}};
 	static int		color[6] = {RED, GREEN, BLUE, GREY, GREY, GREY};
-	t_vec4	tem;
-	int		i;
+	t_vec4			tem;
+	int				i;
 
 	tem = mat4_vec_mul(m, &(t_vec4){{0, 0, 0, 1}});
 	i = -1;
@@ -78,4 +78,21 @@ void	transform_axis(t_point axis[6][2], t_mat4 *m)
 		axis[i][1].y = round_to_int(tem.v[1]);
 		axis[i][1].color = color[i];
 	}
+}
+
+void	rotate(t_object *obj, double theta, int axis)
+{
+	const double	t[2] = {cos(theta), sin(theta)};
+	t_mat4			rot;
+
+	if (axis == 0)
+		rot = (t_mat4){{{1, 0, 0, 0}, {0, t[0], t[1], 0}, \
+						{0, -t[1], t[0], 0}, {0, 0, 0, 1}}};
+	else if (axis == 1)
+		rot = (t_mat4){{{t[0], 0, t[1], 0}, {0, 1, 0, 0}, \
+						{-t[1], 0, t[0], 0}, {0, 0, 0, 1}}};
+	else
+		rot = (t_mat4){{{t[0], -t[1], 0, 0}, {t[1], t[0], 0, 0}, \
+						{0, 0, 1, 0}, {0, 0, 0, 1}}};
+	obj->orientation = mat4_mul(&rot, &obj->orientation);
 }

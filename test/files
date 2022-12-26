@@ -25,4 +25,35 @@ color \
 			utils_matrix \
 			utils_vector3 \
 			utils_vector4 \
+			mandatory files
+color \
+			fdf_split \
+			initialize \
+			main \
+			mlx_draw \
+			mlx_key_hooks \
+			mlx_utils \
+			process_input \
+			rotate \
+			transform1 \
+			transform2 \
+			utils_matrix \
+			utils_vector3 \
+			utils_vector4 \
+			
+bonus files
+color \
+			fdf_split \
+			initialize \
+			main \
+			mlx_draw \
+			mlx_key_hooks \
+			mlx_utils \
+			process_input \
+			rotate \
+			transform1 \
+			transform2 \
+			utils_matrix \
+			utils_vector3 \
+			utils_vector4 \
 			

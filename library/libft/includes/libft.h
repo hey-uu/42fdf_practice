@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hyeyun <hyeyun@student.42.fr>              +#+  +:+       +#+        */
+/*   By: hyeyukim <hyeyukim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 14:04:52 by hyeyukim          #+#    #+#             */
-/*   Updated: 2022/12/26 15:51:55 by hyeyun           ###   ########.fr       */
+/*   Updated: 2022/12/27 01:41:14 by hyeyukim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,10 @@ long	ft_push_swap_atol(const char *str);
 void	*ft_malloc(size_t size_of);
 void	ft_exit(const char *str, int error_status);
 
-// added doing pipex
+// for pipex
 int		ft_max(int a, int b);
+
+// for fdf
+int		ft_abs(int x);
 
 #endif

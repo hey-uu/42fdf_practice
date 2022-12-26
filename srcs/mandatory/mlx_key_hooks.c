@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mlx_key_hooks.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hyeyun <hyeyun@student.42.fr>              +#+  +:+       +#+        */
+/*   By: hyeyukim <hyeyukim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/26 23:40:56 by hyeyun            #+#    #+#             */
-/*   Updated: 2022/12/27 01:01:19 by hyeyun           ###   ########.fr       */
+/*   Created: 2022/12/27 01:44:20 by hyeyukim          #+#    #+#             */
+/*   Updated: 2022/12/27 01:51:13 by hyeyukim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,28 +15,28 @@
 
 void	key_hook_object(int idx, t_data *data)
 {
-	static double constant[15] = {0, 0.9, 1.1, -10, 10, -10, 10, -10, 10, \
-				-FT_PI_27, FT_PI_27, -FT_PI_27, FT_PI_27, -FT_PI_27, FT_PI_27};
+	static double	consts[15] = {0, 0.9, 1.1, -10, 10, -10, 10, -10, 10, \
+					-FT_PI27, FT_PI27, -FT_PI27, FT_PI27, -FT_PI27, FT_PI27};
 
 	if (idx == 0)
 		init_object(&data->obj, data->h, data->w);
 	else if (idx <= 2)
-		data->obj.scale *= constant[idx];
+		data->obj.scale *= consts[idx];
 	else if (idx <= 8)
-		data->obj.pos.v[(idx - 3) / 2] += constant[idx];
+		data->obj.pos.v[(idx - 3) / 2] += consts[idx];
 	else if (idx <= 14)
-		rotate(&data->obj, constant[idx], (idx - 9) / 2);
+		rotate(&data->obj, consts[idx], (idx - 9) / 2);
 	transform(data, OBJ_CHANGE);
 }
 
 void	key_hook_camera(int idx, t_data *data)
 {
-	static double constant[14] = {0, 0, 0, 0, 0, 0, 0, 0, \
+	static double	consts[14] = {0, 0, 0, 0, 0, 0, 0, 0, \
 								-5, 5, -5, 5, -5, 5};
 	if (idx <= 7)
 		init_camera_to_isometric_view(&data->cam, idx);
 	else if (idx <= 13)
-		data->cam.pos.v[(idx - 8) / 2] += constant[idx];
+		data->cam.pos.v[(idx - 8) / 2] += consts[idx];
 	else if (idx == 14)
 		data->cam.look_at = (t_vec4){{0, 0, 0, 1}};
 	else
@@ -51,8 +51,8 @@ int key_hooks(int key, t_data *data)
 						K_Q, K_W, K_E, K_R, K_T, K_Y, \
 						K_A, K_S, K_D, K_F, K_G, K_H, \
 						K_1, K_2, K_3, K_4, K_5, K_6, K_7, K_8, \
-						K_U, K_I, K_O, K_P, K_J, K_K, \
-						K_SPACE, K_ENTER};
+						K_Z, K_X, K_C, K_V, K_B, K_N, \
+						K_O, K_P};
 	int			i;
 
 	i = -1;

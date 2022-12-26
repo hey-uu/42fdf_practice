@@ -6,19 +6,13 @@
 /*   By: hyeyukim <hyeyukim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 14:01:04 by hyeyukim          #+#    #+#             */
-/*   Updated: 2022/11/15 22:08:22 by hyeyukim         ###   ########.fr       */
+/*   Updated: 2022/12/27 01:55:14 by hyeyukim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	ft_abs(int n)
-{
-	if (n < 0)
-		return (-n);
-	else
-		return (n);
-}
+int	ft_abs(int n);
 
 static size_t	ft_getlen(int n)
 {

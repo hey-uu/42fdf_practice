@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    variables_definition.mk                            :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: hyeyun <hyeyun@student.42.fr>              +#+  +:+       +#+         #
+#    By: hyeyukim <hyeyukim@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/31 08:35:23 by hyeyukim          #+#    #+#              #
-#    Updated: 2022/12/27 00:38:11 by hyeyun           ###   ########.fr        #
+#    Updated: 2022/12/27 01:59:58 by hyeyukim         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,15 +35,14 @@ MAN_FILE =	color \
 			initialize \
 			main \
 			mlx_draw \
-			mlx_utils \
 			mlx_key_hooks \
-			parse_input \
+			mlx_utils \
+			process_input \
 			transform1 \
 			transform2 \
 			utils_matrix \
 			utils_vector3 \
-			utils_vector4 \
-			rotate
+			utils_vector4
 BON_FILE = 
 
 # directory files

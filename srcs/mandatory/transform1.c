@@ -6,7 +6,7 @@
 /*   By: hyeyun <hyeyun@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/26 02:54:26 by hyeyun            #+#    #+#             */
-/*   Updated: 2022/12/27 00:33:52 by hyeyun           ###   ########.fr       */
+/*   Updated: 2022/12/27 01:27:48 by hyeyun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void    transform_world(t_object *obj, int h, int w, t_mat4 *m_world)
 {
-	t_mat4          m_srt;
+	t_mat4	m_srt;
 
 	*m_world = (t_mat4){{{1, 0, 0, -(double)w/2}, \
 						{0, -1, 0, (double)h/2}, \
@@ -37,7 +37,7 @@ void	camera_get_view_vectors(t_camera *cam)
 void	init_camera_to_isometric_view(t_camera *cam, int opt)
 {
 	const t_vec4	pos[8] = \
-                    {{{CLEN, -CLEN, CLEN, 1}}, {{-CLEN, -CLEN, CLEN, 1}}, \
+					{{{CLEN, -CLEN, CLEN, 1}}, {{-CLEN, -CLEN, CLEN, 1}}, \
 					{{-CLEN, CLEN, CLEN, 1}}, {{CLEN, CLEN, CLEN, 1}}, \
 					{{CLEN, -CLEN, -CLEN, 1}}, {{-CLEN, -CLEN, -CLEN, 1}}, \
 					{{-CLEN, CLEN, -CLEN, 1}}, {{CLEN, CLEN, -CLEN, 1}}};
@@ -54,15 +54,15 @@ void	transform_view(t_camera *cam, t_mat4 *m_view)
 
 void	transform(t_data *s, int opt)
 {
-	if (opt == CAM_CHANGE)
+	if (opt == OBJ_CHANGE)
+	{
+		transform_world(&s->obj, s->h, s->w, &s->m_world);
+	}
+	else if (opt == CAM_CHANGE)
 	{
 		camera_get_view_vectors(&s->cam);
 		transform_view(&s->cam, &s->m_view);
 		s->m_show = mat4_mul(&s->m_viewport, &s->m_view);
-	}
-	else if (opt == OBJ_CHANGE)
-	{
-		transform_world(&s->obj, s->h, s->w, &s->m_world);
 	}
 	s->m = mat4_mul(&s->m_show, &s->m_world);
 }

@@ -6,13 +6,12 @@
 /*   By: hyeyun <hyeyun@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/26 02:26:40 by hyeyun            #+#    #+#             */
-/*   Updated: 2022/12/26 18:49:18 by hyeyun           ###   ########.fr       */
+/*   Updated: 2022/12/27 01:07:46 by hyeyun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 #include "color.h"
-
 
 int get_vertex_color(int max, int min, int z)
 {

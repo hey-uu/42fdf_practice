@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mlx_utils.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hyeyun <hyeyun@student.42.fr>              +#+  +:+       +#+        */
+/*   By: hyeyukim <hyeyukim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/26 01:21:49 by hyeyun            #+#    #+#             */
-/*   Updated: 2022/12/26 23:41:36 by hyeyun           ###   ########.fr       */
+/*   Updated: 2022/12/27 01:54:22 by hyeyukim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,45 +24,38 @@ void	mlx_pixel_put_image(t_img *img, int x, int y, int color)
 	*(unsigned int *)dst = color;
 }
 
-
-
-int	render_next_frame(t_data *data)
+int	render_next_frame(t_data *dat)
 {
-	ft_memset(data->img.addr, 0, I_H * I_W * data->img.bits_per_pixel / 8);
-	transform_vertex(data, data->vertex, data->screen, &data->m);
-	transform_axis(data->axis, &data->m_show);
-	mlx_draw_object_on_image(data->screen, &data->img, data->h, data->w);
-	mlx_draw_axis_on_image(data->axis, &data->img);
-	mlx_put_image_to_window(data->dev.mlx, data->dev.win, data->img.img, M_W, 0);
+	ft_memset(dat->img.addr, 0, I_H * I_W * dat->img.bytes_per_pixel);
+	transform_vertex(dat, dat->vertex, dat->screen, &dat->m);
+	transform_axis(dat->axis, &dat->m_show);
+	mlx_draw_object(dat->screen, &dat->img, dat->h, dat->w);
+	mlx_draw_axis(dat->axis, &dat->img);
+	mlx_put_image_to_window(dat->dev.mlx, dat->dev.win, dat->img.img, M_W, 0);
 	return (0);
 }
 
 void	show_menu(t_dev *dev)
 {
-	char	 	*str[13];
-	int i;
-	int y;
+	char	*str[13];
+	int		i;
+	int		y;
 	
 	str[0] = "====menu====";
 	str[1] = "axis : x(red), y(green), z(blue)";
-	str[2] = "object translation: ";
-	str[3] = "A(-x) S(+x) D(-y) F(+y) R(-z) T(+z)";
-	str[4] = "object scaling: +(up) -(down)";
+	str[2] = "object scaling: +(up) -(down)";
+	str[3] = "object translation: ";
+	str[4] = "Q(-x) W(+x) E(-y) R(+y) T(-z) Y(+z)";
 	str[5] = "object rotation(local coordinate) : ";
-	str[6] = "Z(+x) X(-x) C(-y) V(+y) B(-z) N(+z)";
-	str[7] = "object init setting: backspace";
-	str[8] = "camera translation:";
-	str[9] = "H(-x) J(+x) K(-y) L(+y) Y(-z) U(+z)";
+	str[6] = "A(+x) S(-x) D(-y) F(+y) G(-z) H(+z)";
+	str[7] = "object initilize position: backspace";
+	str[8] = "camera translation: ";
+	str[9] = "Z(-x) X(+x) C(-y) V(+y) B(-z) N(+z)";
 	str[10] = "camera looks at origin : O";
 	str[11] = "camera looks at object : P";
 	str[12] = "isometric view(eight direction) : 1~8";
-
 	y = 20;
 	i = -1;
 	while (++i < 13)
-	{
-		mlx_string_put(dev->mlx, dev->win, 10, y, YELLOW, str[i]);
-		y += 20;
-	}
+		mlx_string_put(dev->mlx, dev->win, 10, y += 30, YELLOW, str[i]);
 }
-

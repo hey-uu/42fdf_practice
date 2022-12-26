@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils_vector4.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hyeyun <hyeyun@student.42.fr>              +#+  +:+       +#+        */
+/*   By: hyeyukim <hyeyukim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/26 16:11:24 by hyeyun            #+#    #+#             */
-/*   Updated: 2022/12/26 16:11:44 by hyeyun           ###   ########.fr       */
+/*   Updated: 2022/12/27 02:01:19 by hyeyukim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@ double	vec4_dot_product(t_vec4 *u, t_vec4 *v)
 
 t_vec4	vec4_subtract(t_vec4 *u, t_vec4 *v)
 {
-	t_vec4  w;
-	int     i;
+	t_vec4	w;
+	int		i;
 
 	i = -1;
 	while (++i < 4)
