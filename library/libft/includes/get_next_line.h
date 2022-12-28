@@ -6,7 +6,7 @@
 /*   By: hyeyukim <hyeyukim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/24 22:24:08 by hyeyukim          #+#    #+#             */
-/*   Updated: 2022/11/19 13:44:01 by hyeyukim         ###   ########.fr       */
+/*   Updated: 2022/12/27 21:34:13 by hyeyukim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define GET_NEXT_LINE_H
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 1
+#  define BUFFER_SIZE 1024
 # endif
 
 # include <unistd.h>

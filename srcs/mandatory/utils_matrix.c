@@ -5,22 +5,23 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: hyeyukim <hyeyukim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/26 04:14:45 by hyeyun            #+#    #+#             */
-/*   Updated: 2022/12/27 02:00:31 by hyeyukim         ###   ########.fr       */
+/*   Created: 2022/12/27 16:49:22 by hyeyukim          #+#    #+#             */
+/*   Updated: 2022/12/27 16:49:34 by hyeyukim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "matrix.h"
 
-t_mat4  get_srt_matrix(double s, t_mat4 *r, t_vec4 *t)
+t_mat4	get_srt_matrix(double s, t_mat4 *r, t_vec4 *t)
 {
-	return ((t_mat4){{{s * r->m[0][0], s * r->m[0][1], s * r->m[0][2], t->v[0]}, \
-					{s * r->m[1][0], s * r->m[1][1], s * r->m[1][2], t->v[1]}, \
-					{s * r->m[2][0], s * r->m[2][1], s * r->m[2][2], t->v[2]}, \
-					{0, 0, 0, 1}}});
+	return ((t_mat4){\
+			{{s * r->m[0][0], s * r->m[0][1], s * r->m[0][2], t->v[0]}, \
+			{s * r->m[1][0], s * r->m[1][1], s * r->m[1][2], t->v[1]}, \
+			{s * r->m[2][0], s * r->m[2][1], s * r->m[2][2], t->v[2]}, \
+			{0, 0, 0, 1}}});
 }
 
-t_mat4  get_inv_tr_matrix(t_vec4 *d, t_vec4 *u, t_vec4 *s, t_vec4 *p)
+t_mat4	get_inv_tr_matrix(t_vec4 *d, t_vec4 *u, t_vec4 *s, t_vec4 *p)
 {
 	return ((t_mat4){{{s->v[0], s->v[1], s->v[2], -vec4_dot_product(s, p)}, \
 					{u->v[0], u->v[1], u->v[2], -vec4_dot_product(u, p)}, \
@@ -37,7 +38,8 @@ t_vec4	mat4_vec_mul(const t_mat4 *mat, t_vec4 *vec)
 	while (++i < 4)
 	{
 		res.v[i] = vec4_dot_product(\
-		&(t_vec4){{mat->m[i][0], mat->m[i][1], mat->m[i][2], mat->m[i][3]}}, vec);
+		&(t_vec4){{mat->m[i][0], mat->m[i][1], mat->m[i][2], mat->m[i][3]}}, \
+		vec);
 	}
 	return (res);
 }

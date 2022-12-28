@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   matrix.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hyeyun <hyeyun@student.42.fr>              +#+  +:+       +#+        */
+/*   By: hyeyukim <hyeyukim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 13:52:59 by hyeyukim          #+#    #+#             */
-/*   Updated: 2022/12/26 16:14:59 by hyeyun           ###   ########.fr       */
+/*   Updated: 2022/12/28 16:40:53 by hyeyukim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,6 @@
 # include <stdio.h>
 # define __USE_MISC 1
 # include <math.h>
-
-
 
 /*----------- DEFINE MACRO CONSTANTS ------------*/
 # include "vector.h"

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   color.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hyeyun <hyeyun@student.42.fr>              +#+  +:+       +#+        */
+/*   By: hyeyukim <hyeyukim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/22 12:17:42 by hyeyukim          #+#    #+#             */
-/*   Updated: 2022/12/26 19:20:13 by hyeyun           ###   ########.fr       */
+/*   Updated: 2022/12/27 21:52:56 by hyeyukim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,4 +30,6 @@
 # define LLRED 0XFF6666
 # define LLGREEN 0X66ff66
 # define LLBLUE 0X6666ff
+
+# define BLACK 0x000000
 #endif

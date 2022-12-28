@@ -6,20 +6,12 @@
 /*   By: hyeyukim <hyeyukim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 01:37:21 by hyeyukim          #+#    #+#             */
-/*   Updated: 2022/12/27 01:59:43 by hyeyukim         ###   ########.fr       */
+/*   Updated: 2022/12/28 19:59:34 by hyeyukim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 #include "color.h"
-
-void	transform_viewport(t_mat4 *m_viewport)
-{
-	*m_viewport = (t_mat4){{{1, 0, 0, (double)I_W / 2}, \
-							{0, -1, 0, (double)I_H / 2}, \
-							{0, 0, 1, 0}, \
-							{0, 0, 0, 1}}};
-}
 
 int	round_to_int(double x)
 {
@@ -29,16 +21,24 @@ int	round_to_int(double x)
 	if (res >= 5)
 		return ((int)(x + 1));
 	if (res <= -5)
- 		return ((int)(x - 1));
+		return ((int)(x - 1));
 	return ((int)x);
 }
 
-void    transform_vertex(t_data *data, t_vec4 **vtx, t_point **scr, t_mat4 *m)
+void	transform_viewport(t_mat4 *m_viewport)
+{
+	*m_viewport = (t_mat4){{{1, 0, 0, (double)I_W / 2 + (double)M_W / 2}, \
+							{0, -1, 0, (double)I_H / 2}, \
+							{0, 0, 1, 0}, \
+							{0, 0, 0, 1}}};
+}
+
+void	transform_vertex(t_data *data, t_vec4 **vtx, t_point **scr, t_mat4 *m)
 {
 	t_vec4	tem;
 	int		i;
 	int		j;
-	
+
 	i = -1;
 	while (++i < data->h)
 	{

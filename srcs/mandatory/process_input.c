@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   process_input.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hyeyun <hyeyun@student.42.fr>              +#+  +:+       +#+        */
+/*   By: hyeyukim <hyeyukim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/16 21:04:30 by hyeyukim          #+#    #+#             */
-/*   Updated: 2022/12/27 01:10:15 by hyeyun           ###   ########.fr       */
+/*   Updated: 2022/12/28 17:22:08 by hyeyukim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,8 @@ void	parse_map(t_data *data, int fd)
 		line = get_next_line(fd);
 		if (!line)
 			break ;
-		line[ft_strlen(line) - 1] = 0;
+		if (line[ft_strlen(line) - 1] == '\n')
+			line[ft_strlen(line) - 1] = 0;
 		new = fdf_make_new_node(line);
 		free(line);
 		fdf_add_node_front(&split_list, new);

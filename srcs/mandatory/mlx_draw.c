@@ -6,7 +6,7 @@
 /*   By: hyeyukim <hyeyukim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 12:17:02 by hyeyukim          #+#    #+#             */
-/*   Updated: 2022/12/27 01:38:34 by hyeyukim         ###   ########.fr       */
+/*   Updated: 2022/12/28 19:47:46 by hyeyukim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,12 @@ void	mlx_draw_line(const t_point *p, const t_point *q, t_img *img)
 							ft_abs(q->x - p->x), ft_abs(q->y - p->y)};
 	const t_two_points	s2 = {q, p, p->x - q->x, p->y - q->y, \
 							ft_abs(q->x - p->x), ft_abs(q->y - p->y)};
+	int					c[2];
 
+	c[0] = (p->x < 0) << 3 | (p->x > I_W) << 2 | (p->y < 0) << 1 | (p->y > I_H);
+	c[1] = (q->x < 0) << 3 | (q->x > I_W) << 2 | (q->y < 0) << 1 | (q->y > I_H);
+	if (c[0] & c[1])
+		return ;
 	if (s1.abs_dy < s1.abs_dx)
 	{
 		if (s1.dx < 0)
@@ -89,10 +94,10 @@ void	mlx_draw_line(const t_point *p, const t_point *q, t_img *img)
 	}
 }
 
-void	mlx_draw_object(t_point **scr, t_img *img, int h, int w)
+void	draw_object(t_point **scr, t_img *img, int h, int w)
 {
-	int	i;
-	int	j;
+	int			i;
+	int			j;
 
 	i = -1;
 	while (++i < h)
@@ -108,7 +113,7 @@ void	mlx_draw_object(t_point **scr, t_img *img, int h, int w)
 	}
 }
 
-void	mlx_draw_axis(t_point axis[6][2], t_img *img)
+void	draw_axis(t_point axis[6][2], t_img *img)
 {
 	int	i;
 
@@ -116,5 +121,5 @@ void	mlx_draw_axis(t_point axis[6][2], t_img *img)
 	while (++i < 6)
 		mlx_draw_line(&axis[i][0], &axis[i][1], img);
 	mlx_draw_line(\
-    &(t_point){0, 0, WHITE}, &(t_point){0, I_H, WHITE}, img);
+	&(t_point){0, 0, WHITE}, &(t_point){0, I_H, WHITE}, img);
 }
