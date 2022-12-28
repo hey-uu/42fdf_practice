@@ -6,7 +6,7 @@
 /*   By: hyeyukim <hyeyukim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/26 16:11:24 by hyeyun            #+#    #+#             */
-/*   Updated: 2022/12/27 02:01:19 by hyeyukim         ###   ########.fr       */
+/*   Updated: 2022/12/29 01:15:10 by hyeyukim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ t_vec4	vec4_subtract(t_vec4 *u, t_vec4 *v)
 	while (++i < 4)
 	{
 		w.v[i] = u->v[i] - v->v[i];
+    //    printf("   subtract: %f\n", w.v[i]);
 	}
 	return (w);
 }
