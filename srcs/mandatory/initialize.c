@@ -6,7 +6,7 @@
 /*   By: hyeyukim <hyeyukim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/26 01:21:35 by hyeyun            #+#    #+#             */
-/*   Updated: 2022/12/28 21:18:33 by hyeyukim         ###   ########.fr       */
+/*   Updated: 2022/12/28 22:46:03 by hyeyukim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,9 @@ void	init_transformation(t_data *s)
 	transform_viewport(&s->m_viewport);
 	s->m_show = mat4_mul(&s->m_viewport, &s->m_view);
 	s->m = mat4_mul(&s->m_show, &s->m_world);
+	printf("%f %f %f %f\n", s->cam.pos.v[0], s->cam.pos.v[1], s->cam.pos.v[2], s->cam.pos.v[3]);
+	printf("%f %f %f %f\n", s->cam.look_at.v[0], s->cam.look_at.v[1], s->cam.look_at.v[2], s->cam.look_at.v[3]);
+	printf("%f %f %f %f\n", s->cam.dir.v[0], s->cam.dir.v[1], s->cam.dir.v[2], s->cam.dir.v[3]);
 }
 
 void	initialize_setting(t_data *data)
