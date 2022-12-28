@@ -6,7 +6,7 @@
 /*   By: hyeyukim <hyeyukim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/26 02:54:26 by hyeyun            #+#    #+#             */
-/*   Updated: 2022/12/28 20:00:59 by hyeyukim         ###   ########.fr       */
+/*   Updated: 2022/12/28 21:27:55 by hyeyukim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	camera_get_view_vectors(t_camera *cam)
 {
 	cam->dir = vec4_subtract(&cam->look_at, &cam->pos);
 	if (cam->dir.v[0] == 0 && cam->dir.v[1] == 0)
-		init_camera_to_top_view(cam);
+		init_camera_to_top_view(cam, 1);
 	else
 	{
 		cam->dir = vec3_normalize(&cam->dir);

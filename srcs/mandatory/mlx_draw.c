@@ -6,7 +6,7 @@
 /*   By: hyeyukim <hyeyukim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 12:17:02 by hyeyukim          #+#    #+#             */
-/*   Updated: 2022/12/28 19:47:46 by hyeyukim         ###   ########.fr       */
+/*   Updated: 2022/12/28 22:08:39 by hyeyukim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,6 +120,4 @@ void	draw_axis(t_point axis[6][2], t_img *img)
 	i = -1;
 	while (++i < 6)
 		mlx_draw_line(&axis[i][0], &axis[i][1], img);
-	mlx_draw_line(\
-	&(t_point){0, 0, WHITE}, &(t_point){0, I_H, WHITE}, img);
 }

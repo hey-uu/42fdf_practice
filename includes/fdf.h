@@ -6,7 +6,7 @@
 /*   By: hyeyukim <hyeyukim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/16 20:57:20 by hyeyukim          #+#    #+#             */
-/*   Updated: 2022/12/28 19:37:38 by hyeyukim         ###   ########.fr       */
+/*   Updated: 2022/12/28 22:08:55 by hyeyukim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@
 typedef enum e_change
 {
 	CAM_CHANGE = 0,
-	OBJ_CHANGE = 1,
+	OBJ_CHANGE = 1
 }	t_change;
 
 typedef enum e_hook_option
@@ -185,7 +185,7 @@ void	transform_vertex(t_data *data, t_vec4 **vtx, t_point **scr, t_mat4 *m);
 void	transform_axis(t_point axis[6][2], t_mat4 *m);
 
 // view
-void	init_camera_to_top_view(t_camera *cam);
+void	init_camera_to_top_view(t_camera *cam, int opt);
 
 // rotate
 void	rotate(t_object *obj, double theta, int axis);
@@ -193,5 +193,6 @@ void	rotate(t_object *obj, double theta, int axis);
 // show menu
 void	show_manual(t_dev *dev);
 void	put_manual_to_image(t_data *data);
+void	draw_menu_lines(t_img *img, int option);
 
 #endif

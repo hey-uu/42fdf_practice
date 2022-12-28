@@ -6,7 +6,7 @@
 /*   By: hyeyukim <hyeyukim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/26 01:21:35 by hyeyun            #+#    #+#             */
-/*   Updated: 2022/12/28 20:04:42 by hyeyukim         ###   ########.fr       */
+/*   Updated: 2022/12/28 21:18:33 by hyeyukim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,6 @@ void	init_object(t_object *obj, t_data *data)
 	if (data->h == 0 || data->w == 0)
 		return ;
 	scale[0] = (double)I_H / (data->h * 2.5);
-	printf("scale: %f\n", scale[0]);
 	scale[1] = (double)I_W / (data->w * 2.5);
 	obj->scale[0] = scale[0];
 	if (scale[1] < obj->scale[0])
@@ -62,11 +61,9 @@ void	init_transformation(t_data *s)
 	init_camera_to_isometric_view(&s->cam, 0);
 	camera_get_view_vectors(&s->cam);
 	transform_world(&s->obj, s->h - 1, s->w - 1, &s->m_world);
-	printf("\n%f\n%f\n%f\n%f\n", s->m_world.m[0][0],  s->m_world.m[0][1],  s->m_world.m[0][2],  s->m_world.m[0][3]);
 	transform_view(&s->cam, &s->m_view);
 	transform_viewport(&s->m_viewport);
 	s->m_show = mat4_mul(&s->m_viewport, &s->m_view);
-	printf("\n%f\n", s->m_show.m[0][0]);
 	s->m = mat4_mul(&s->m_show, &s->m_world);
 }
 

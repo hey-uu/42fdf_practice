@@ -6,7 +6,7 @@
 /*   By: hyeyukim <hyeyukim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/28 19:29:58 by hyeyukim          #+#    #+#             */
-/*   Updated: 2022/12/28 19:30:01 by hyeyukim         ###   ########.fr       */
+/*   Updated: 2022/12/28 21:00:46 by hyeyukim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # define K_ESC 53
 
+# define K_0 29
 # define K_1 18
 # define K_2 19
 # define K_3 20

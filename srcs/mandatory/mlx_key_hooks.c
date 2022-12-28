@@ -6,7 +6,7 @@
 /*   By: hyeyukim <hyeyukim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 01:44:20 by hyeyukim          #+#    #+#             */
-/*   Updated: 2022/12/28 20:06:02 by hyeyukim         ###   ########.fr       */
+/*   Updated: 2022/12/28 21:27:21 by hyeyukim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,11 +45,13 @@ void	key_hook_camera(int idx, t_data *data)
 {
 	static double	consts[6] = {-5, 5, -5, 5, -5, 5};
 
-	if (idx <= 7)
-		init_camera_to_isometric_view(&data->cam, idx);
-	else if (idx <= 13)
-		data->cam.pos.v[(idx - 8) / 2] += consts[idx - 8];
-	else if (idx == 14)
+	if (idx == 0)
+		init_camera_to_top_view(&data->cam, 0);
+	else if (idx <= 8)
+		init_camera_to_isometric_view(&data->cam, idx - 1);
+	else if (idx <= 14)
+		data->cam.pos.v[(idx - 9) / 2] += consts[idx - 9];
+	else if (idx == 15)
 		data->cam.look_at = (t_vec4){{0, 0, 0, 1}};
 	else
 		data->cam.look_at = data->obj.pos;
@@ -58,25 +60,25 @@ void	key_hook_camera(int idx, t_data *data)
 
 int	key_hooks(int key, t_data *data)
 {
-	static int	keys[38] = {\
+	static int	keys[39] = {\
 				K_ESC, K_BACK, K_MINUS, K_PLUS, \
 				K_U, K_I, K_J, K_K, K_M, K_COMMA, \
 				K_Q, K_W, K_E, K_R, K_T, K_Y, \
 				K_A, K_S, K_D, K_F, K_G, K_H, \
-				K_1, K_2, K_3, K_4, K_5, K_6, K_7, K_8, \
+				K_0, K_1, K_2, K_3, K_4, K_5, K_6, K_7, K_8, \
 				K_Z, K_X, K_C, K_V, K_B, K_N, \
 				K_O, K_P};
 	int			i;
 
 	i = -1;
-	while (++i < 38)
+	while (++i < 39)
 		if (keys[i] == key)
 			break ;
 	if (i == 0)
-		exit(0);
+		terminate_program(data);
 	else if (i <= 21)
 		key_hook_object(i - 1, data);
-	else if (i <= 37)
+	else if (i <= 38)
 		key_hook_camera(i - 22, data);
 	return (1);
 }
@@ -87,8 +89,11 @@ int	key_release_hooks(int key, t_data *data)
 
 	if (key == K_ENTER)
 	{
-		enter_cnt = (enter_cnt + 1) % 8;
-		init_camera_to_isometric_view(&data->cam, enter_cnt);
+		enter_cnt = (enter_cnt + 1) % 9;
+		if (enter_cnt <= 7)
+			init_camera_to_isometric_view(&data->cam, enter_cnt);
+		else
+			init_camera_to_top_view(&data->cam, 0);
 		transform(data, CAM_CHANGE);
 	}
 	if (key == K_CTRL)

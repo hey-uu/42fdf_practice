@@ -6,7 +6,7 @@
 /*   By: hyeyukim <hyeyukim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 16:48:24 by hyeyukim          #+#    #+#             */
-/*   Updated: 2022/12/28 18:04:39 by hyeyukim         ###   ########.fr       */
+/*   Updated: 2022/12/28 22:20:23 by hyeyukim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,27 @@ void	put_manual_to_image(t_data *data)
 	}
 }
 
+void	draw_menu_lines(t_img *img, int option)
+{
+	int	i;
+
+	if (option == 1)
+		return ;
+	i = -1;
+	while (++i < 3)
+	{
+		mlx_draw_line(\
+		&(t_point){M_W + i, 0, WHITE}, &(t_point){M_W + i, I_H, WHITE}, img);
+		mlx_draw_line(\
+		&(t_point){i, 0, WHITE}, &(t_point){i, I_H, WHITE}, img);
+		mlx_draw_line(\
+		&(t_point){0, i, WHITE}, &(t_point){M_W, i, WHITE}, img);
+		mlx_draw_line(\
+		&(t_point){0, I_H - i - 1, WHITE}, &(t_point){M_W, I_H - i - 1, WHITE}, \
+		img);
+	}
+}
+
 // void	show_position(t_object *obj, t_camera *cam)
 // {
 // 	const char	*consts = {"   x: ", "   y: ", "   z: "};
@@ -96,12 +117,10 @@ void	put_manual_to_image(t_data *data)
 // 	str[0] = "  position |";
 // 	mlx_string_put(dev->mlx, dev->win, 12, 50, WHITE, str[0]);
 // 	str[1] = 
-	
 // }
 
 // void	show_camera_status(t_camera *cam, t_dev *dev)
 // {
-	
 // }
 
 // void	show_status(t_data *data)

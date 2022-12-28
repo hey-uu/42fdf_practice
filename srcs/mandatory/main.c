@@ -6,7 +6,7 @@
 /*   By: hyeyukim <hyeyukim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/16 20:59:16 by hyeyukim          #+#    #+#             */
-/*   Updated: 2022/12/28 12:37:50 by hyeyukim         ###   ########.fr       */
+/*   Updated: 2022/12/28 22:09:06 by hyeyukim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ int	main(int argc, char **argv)
 
 	process_input(argc, argv, &data);
 	initialize_setting(&data);
-	show_manual(&data.dev);
 	mlx_hook(data.dev.win, KEY_PRESS, 0, key_hooks, &data);
 	mlx_hook(data.dev.win, KEY_RELEASE, 0, key_release_hooks, &data);
 	mlx_hook(data.dev.win, BUTTON_PRESS, 0, mouse_hooks, &data);
