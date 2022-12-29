@@ -6,7 +6,7 @@
 /*   By: hyeyukim <hyeyukim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/26 01:21:35 by hyeyun            #+#    #+#             */
-/*   Updated: 2022/12/28 22:46:03 by hyeyukim         ###   ########.fr       */
+/*   Updated: 2022/12/29 21:50:36 by hyeyukim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,17 +39,23 @@ void	init_screen(t_data *data)
 void	init_object(t_object *obj, t_data *data)
 {
 	double	scale[2];
+	int		i;
 
 	if (data->h == 0 || data->w == 0)
 		return ;
 	scale[0] = (double)I_H / (data->h * 2.5);
 	scale[1] = (double)I_W / (data->w * 2.5);
-	obj->scale[0] = scale[0];
-	if (scale[1] < obj->scale[0])
-		obj->scale[0] = scale[1];
-	obj->scale[1] = 1;
-	obj->scale[2] = 1;
-	obj->scale[3] = 1;
+	obj->t_scale[0] = scale[0];
+	if (scale[1] < obj->t_scale[0])
+		obj->t_scale[0] = scale[1];
+	obj->scale[0] = obj->t_scale[0];
+	i = 0;
+	while (++i <= 3)
+	{
+		obj->t_scale[i] = 1;
+		obj->scale[i] = 1;
+	}
+	obj->t_pos = (t_vec4){{0, 0, 0, 1}};
 	obj->pos = (t_vec4){{0, 0, 0, 1}};
 	obj->orientation = \
 	(t_mat4){{{1, 0, 0, 0}, {0, 1, 0, 0}, {0, 0, 1, 0}, {0, 0, 0, 1}}};
@@ -65,9 +71,6 @@ void	init_transformation(t_data *s)
 	transform_viewport(&s->m_viewport);
 	s->m_show = mat4_mul(&s->m_viewport, &s->m_view);
 	s->m = mat4_mul(&s->m_show, &s->m_world);
-	printf("%f %f %f %f\n", s->cam.pos.v[0], s->cam.pos.v[1], s->cam.pos.v[2], s->cam.pos.v[3]);
-	printf("%f %f %f %f\n", s->cam.look_at.v[0], s->cam.look_at.v[1], s->cam.look_at.v[2], s->cam.look_at.v[3]);
-	printf("%f %f %f %f\n", s->cam.dir.v[0], s->cam.dir.v[1], s->cam.dir.v[2], s->cam.dir.v[3]);
 }
 
 void	initialize_setting(t_data *data)

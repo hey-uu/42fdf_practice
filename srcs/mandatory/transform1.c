@@ -6,7 +6,7 @@
 /*   By: hyeyukim <hyeyukim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/26 02:54:26 by hyeyun            #+#    #+#             */
-/*   Updated: 2022/12/28 21:27:55 by hyeyukim         ###   ########.fr       */
+/*   Updated: 2022/12/29 21:52:08 by hyeyukim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,13 @@ void	transform_world(t_object *obj, int h, int w, t_mat4 *m_world)
 {
 	t_mat4	m_srt;
 
-	*m_world = (t_mat4){{{obj->scale[1], 0, 0, -(double)w / 2 * obj->scale[1]}, \
-						{0, -obj->scale[2], 0, (double)h / 2 * obj->scale[2]}, \
-						{0, 0, obj->scale[3], 0}, \
-						{0, 0, 0, 1}}};
-	m_srt = get_srt_matrix(obj->scale[0], &obj->orientation, &obj->pos);
+	obj->t_scale[0] = RATIO * 
+	*m_world = (t_mat4){\
+			{{obj->t_scale[1], 0, 0, -(double)w / 2 * obj->t_scale[1]}, \
+			{0, -obj->t_scale[2], 0, (double)h / 2 * obj->t_scale[2]}, \
+			{0, 0, obj->t_scale[3], 0}, \
+			{0, 0, 0, 1}}};
+	m_srt = get_srt_matrix(obj->t_scale[0], &obj->orientation, &obj->pos);
 	*m_world = mat4_mul(&m_srt, m_world);
 }
 

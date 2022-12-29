@@ -6,7 +6,7 @@
 /*   By: hyeyukim <hyeyukim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 01:44:20 by hyeyukim          #+#    #+#             */
-/*   Updated: 2022/12/28 22:45:38 by hyeyukim         ###   ########.fr       */
+/*   Updated: 2022/12/29 20:51:26 by hyeyukim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,10 +56,6 @@ void	key_hook_camera(int idx, t_data *data)
 	else
 		data->cam.look_at = data->obj.pos;
 	transform(data, CAM_CHANGE);
-	printf("%f %f %f %f\n", data->cam.pos.v[0], data->cam.pos.v[1], data->cam.pos.v[2], data->cam.pos.v[3]);
-	printf("%f %f %f %f\n", data->cam.look_at.v[0], data->cam.look_at.v[1], data->cam.look_at.v[2], data->cam.look_at.v[3]);
-	printf("%f %f %f %f\n", data->cam.dir.v[0], data->cam.dir.v[1], data->cam.dir.v[2], data->cam.dir.v[3]);
-
 }
 
 int	key_hooks(int key, t_data *data)
