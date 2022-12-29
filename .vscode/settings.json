@@ -1,5 +1,7 @@
 {
 	"files.associations": {
-		"key_mouse_code.h": "c"
+		"key_mouse_code.h": "c",
+		"matrix.h": "c",
+		"vector.h": "c"
 	}
 }

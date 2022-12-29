@@ -6,7 +6,7 @@
 /*   By: hyeyukim <hyeyukim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/26 01:21:49 by hyeyun            #+#    #+#             */
-/*   Updated: 2022/12/28 22:09:52 by hyeyukim         ###   ########.fr       */
+/*   Updated: 2022/12/29 23:12:04 by hyeyukim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,40 @@ void	mlx_pixel_put_image(t_img *img, int x, int y, int color)
 
 int	render_next_frame(t_data *dat)
 {
+	t_vec4	tem_v[2];
+	int		flag;
+	int		i;
+
+	i = -1;
+	flag = 0;
+	while (++i < 4)
+	{
+		if (dat->obj.t_scale[i] != dat->obj.scale[i])
+		{
+			dat->obj.t_scale[i] = \
+			RATIO * dat->obj.t_scale[i] + (1 - RATIO) * dat->obj.scale[i];
+			flag = 1;
+		}
+	}
+	if (!vec4_equals(&dat->obj.t_pos, &dat->obj.pos))
+	{
+		tem_v[0] = vec4_scalar_mul(RATIO, &dat->obj.t_pos);
+		tem_v[1] = vec4_scalar_mul(1 - RATIO, &dat->obj.pos);
+		dat->obj.t_pos = vec4_add(&tem_v[0], &tem_v[1]);
+		flag = 1;
+	}
+	if (flag == 1)
+		transform(dat, OBJ_CHANGE);
+	flag = 0;
+	if (!vec4_equals(&dat->cam.t_pos, &dat->cam.pos))
+	{
+		tem_v[0] = vec4_scalar_mul(RATIO, &dat->cam.t_pos);
+		tem_v[1] = vec4_scalar_mul(1 - RATIO, &dat->cam.pos);
+		dat->cam.t_pos = vec4_add(&tem_v[0], &tem_v[1]);
+		flag = 1;
+	}
+	if (flag == 1)
+		transform(dat, CAM_CHANGE);
 	ft_memset(dat->img.addr, 1, I_H * I_W * dat->img.bytes_per_pixel);
 	transform_vertex(dat, dat->vertex, dat->screen, &dat->m);
 	transform_axis(dat->axis, &dat->m_show);

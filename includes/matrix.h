@@ -6,7 +6,7 @@
 /*   By: hyeyukim <hyeyukim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 13:52:59 by hyeyukim          #+#    #+#             */
-/*   Updated: 2022/12/28 16:40:53 by hyeyukim         ###   ########.fr       */
+/*   Updated: 2022/12/29 22:20:15 by hyeyukim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,8 @@ typedef struct s_mat4
 	double	m[4][4];
 }	t_mat4;
 
-t_mat4  get_srt_matrix(double s, t_mat4 *r, t_vec4 *t);
-t_mat4  get_inv_tr_matrix(t_vec4 *d, t_vec4 *u, t_vec4 *s, t_vec4 *p);
+t_mat4	get_srt_matrix(double s, t_mat4 *r, t_vec4 *t);
+t_mat4	get_inv_tr_matrix(t_vec4 *d, t_vec4 *u, t_vec4 *s, t_vec4 *p);
 t_vec4	mat4_vec_mul(const t_mat4 *mat, t_vec4 *vec);
 t_mat4	mat4_mul(const t_mat4 *a, const t_mat4 *b);
 

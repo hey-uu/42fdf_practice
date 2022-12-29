@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   vector.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hyeyun <hyeyun@student.42.fr>              +#+  +:+       +#+        */
+/*   By: hyeyukim <hyeyukim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 12:19:17 by hyeyukim          #+#    #+#             */
-/*   Updated: 2022/12/26 16:14:51 by hyeyun           ###   ########.fr       */
+/*   Updated: 2022/12/29 22:52:58 by hyeyukim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,5 +39,7 @@ t_vec4	vec4_subtract(t_vec4 *u, t_vec4 *v);
 t_vec4	vec4_scalar_mul(double alpha, t_vec4 *u);
 t_vec4	vec4_gram_shmidt(t_vec4 *u, t_vec4 *v);
 t_vec4	vec4_outer_product(t_vec4 *u, t_vec4 *v);
+t_vec4	vec4_add(t_vec4 *u, t_vec4 *v);
+int		vec4_equals(t_vec4 *u, t_vec4 *v);
 
 #endif

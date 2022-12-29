@@ -6,7 +6,7 @@
 /*   By: hyeyukim <hyeyukim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/26 02:54:26 by hyeyun            #+#    #+#             */
-/*   Updated: 2022/12/29 21:52:08 by hyeyukim         ###   ########.fr       */
+/*   Updated: 2022/12/29 23:13:12 by hyeyukim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,19 +16,18 @@ void	transform_world(t_object *obj, int h, int w, t_mat4 *m_world)
 {
 	t_mat4	m_srt;
 
-	obj->t_scale[0] = RATIO * 
 	*m_world = (t_mat4){\
 			{{obj->t_scale[1], 0, 0, -(double)w / 2 * obj->t_scale[1]}, \
 			{0, -obj->t_scale[2], 0, (double)h / 2 * obj->t_scale[2]}, \
 			{0, 0, obj->t_scale[3], 0}, \
 			{0, 0, 0, 1}}};
-	m_srt = get_srt_matrix(obj->t_scale[0], &obj->orientation, &obj->pos);
+	m_srt = get_srt_matrix(obj->t_scale[0], &obj->orientation, &obj->t_pos);
 	*m_world = mat4_mul(&m_srt, m_world);
 }
 
 void	camera_get_view_vectors(t_camera *cam)
 {
-	cam->dir = vec4_subtract(&cam->look_at, &cam->pos);
+	cam->dir = vec4_subtract(&cam->look_at, &cam->t_pos);
 	if (cam->dir.v[0] == 0 && cam->dir.v[1] == 0)
 		init_camera_to_top_view(cam, 1);
 	else
@@ -43,7 +42,7 @@ void	camera_get_view_vectors(t_camera *cam)
 void	transform_view(t_camera *cam, t_mat4 *m_view)
 {
 	*m_view = get_inv_tr_matrix(\
-			&cam->dir, &cam->up, &cam->side, &cam->pos);
+			&cam->dir, &cam->up, &cam->side, &cam->t_pos);
 }
 
 void	transform(t_data *s, int opt)

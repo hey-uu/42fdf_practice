@@ -6,7 +6,7 @@
 /*   By: hyeyukim <hyeyukim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/16 20:57:20 by hyeyukim          #+#    #+#             */
-/*   Updated: 2022/12/29 21:52:04 by hyeyukim         ###   ########.fr       */
+/*   Updated: 2022/12/29 23:14:38 by hyeyukim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@
 # endif
 # define FT_PI27 0.11635528346628863846
 # define ALPHA 500
-# define RATIO 0.9
+# define RATIO 0.87
 
 /*------------- STRUCT DECLARATIONS --------------*/
 
@@ -120,6 +120,7 @@ typedef struct s_object
 typedef struct s_camera
 {
 	t_vec4	pos;
+	t_vec4	t_pos;
 	t_vec4	look_at;
 	t_vec4	dir;
 	t_vec4	up;
@@ -197,6 +198,5 @@ void	rotate(t_object *obj, double theta, int axis);
 void	show_manual(t_dev *dev);
 void	put_manual_to_image(t_data *data);
 void	draw_menu_lines(t_img *img, int option);
-void	check_for_animation(t_data *data);
 
 #endif
