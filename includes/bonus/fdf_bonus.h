@@ -1,24 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fdf.h                                              :+:      :+:    :+:   */
+/*   fdf_bonus.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hyeyukim <hyeyukim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/16 20:57:20 by hyeyukim          #+#    #+#             */
-/*   Updated: 2022/12/29 23:14:38 by hyeyukim         ###   ########.fr       */
+/*   Updated: 2022/12/30 07:51:15 by hyeyukim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FDF_H
-# define FDF_H
+#ifndef FDF_BONUS_H
+# define FDF_BONUS_H
 
 /*-------------- STANDARD HEADERS ---------------*/
 # include <fcntl.h>
-# include <stdio.h>
 
 /*-------------- USER DEFINED HEADERS ------------*/
-# include "matrix.h"
+# include "matrix_bonus.h"
 # include "get_next_line.h"
 # include "libft.h"
 
@@ -85,6 +84,7 @@ typedef struct s_img
 	t_dev	*dev;
 	void	*img;
 	char	*addr;
+	char	*buff;
 	int		bits_per_pixel;
 	int		bytes_per_pixel;
 	int		line_len;
@@ -157,20 +157,29 @@ void	fdf_split_map_line(t_split_node *node, char const *s, char c);
 // initialize
 void	initialize_setting(t_data *data);
 void	init_object(t_object *obj, t_data *data);
+
+// camera view
 void	init_camera_to_isometric_view(t_camera *cam, int opt);
+void	init_camera_to_top_view(t_camera *cam, int opt);
+
+// menu
+void	show_manual(t_dev *dev);
 
 // mlx_utils
-void	show_manual(t_dev *dev);
-void	mlx_pixel_put_image(t_img *img, int x, int y, int color);
-int		key_hooks(int key, t_data *data);
-int		mouse_hooks(int mouse, int x, int y, t_data *data);
-int		render_next_frame(t_data *data);
+void	mlx_pixel_put_buffer(t_img *img, int x, int y, int color);
+int		mlx_render_next_frame(t_data *data);
 int		terminate_program(t_data *data);
+
+// mlx_key_press_hooks
+int		key_press_hooks(int key, t_data *data);
 int		key_release_hooks(int key, t_data *data);
+
+// mlx_mouse_hooks
+int		mouse_hooks(int mouse, int x, int y, t_data *data);
 int		motion_hooks(int x, int y, t_data *data);
 
 // mlx_draw
-void	mlx_draw_line(const t_point *p, const t_point *q, t_img *img);
+void	draw_line(const t_point *p, const t_point *q, t_img *img);
 void	draw_object(t_point **scr, t_img *img, int h, int w);
 void	draw_axis(t_point axis[6][2], t_img *img);
 
@@ -187,9 +196,6 @@ void	transform_viewport(t_mat4 *viewport_mat);
 void	transform(t_data *s, int opt);
 void	transform_vertex(t_data *data, t_vec4 **vtx, t_point **scr, t_mat4 *m);
 void	transform_axis(t_point axis[6][2], t_mat4 *m);
-
-// view
-void	init_camera_to_top_view(t_camera *cam, int opt);
 
 // rotate
 void	rotate(t_object *obj, double theta, int axis);

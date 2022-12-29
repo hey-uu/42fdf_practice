@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   menu.c                                             :+:      :+:    :+:   */
+/*   menu_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hyeyukim <hyeyukim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 16:48:24 by hyeyukim          #+#    #+#             */
-/*   Updated: 2022/12/30 07:06:14 by hyeyukim         ###   ########.fr       */
+/*   Updated: 2022/12/30 07:12:15 by hyeyukim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#include "fdf_bonus.h"
 #include "mlx.h"
-#include "color.h"
+#include "color_bonus.h"
 
 int	get_current_color(int x, int y, t_img *img)
 {

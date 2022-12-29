@@ -6,7 +6,7 @@
 /*   By: hyeyukim <hyeyukim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 13:52:59 by hyeyukim          #+#    #+#             */
-/*   Updated: 2022/12/29 22:20:15 by hyeyukim         ###   ########.fr       */
+/*   Updated: 2022/12/30 07:50:31 by hyeyukim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 # define MATRIX_H
 
 /*-------------- STANDARD HEADERS ---------------*/
-# include <stdio.h>
-# define __USE_MISC 1
 # include <math.h>
 
 /*----------- DEFINE MACRO CONSTANTS ------------*/
@@ -31,6 +29,8 @@ typedef struct s_mat4
 {
 	double	m[4][4];
 }	t_mat4;
+
+/*-------------- FUNCTION PROTOTYPES -------------*/
 
 t_mat4	get_srt_matrix(double s, t_mat4 *r, t_vec4 *t);
 t_mat4	get_inv_tr_matrix(t_vec4 *d, t_vec4 *u, t_vec4 *s, t_vec4 *p);

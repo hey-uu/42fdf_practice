@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mlx_draw.c                                         :+:      :+:    :+:   */
+/*   mlx_draw_bonus.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hyeyukim <hyeyukim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 12:17:02 by hyeyukim          #+#    #+#             */
-/*   Updated: 2022/12/30 07:06:14 by hyeyukim         ###   ########.fr       */
+/*   Updated: 2022/12/30 07:12:15 by hyeyukim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#include "fdf_bonus.h"
 #include "mlx.h"
-#include "color.h"
+#include "color_bonus.h"
 
 void	draw_low_line(const t_two_points *s, t_img *img)
 {

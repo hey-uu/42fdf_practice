@@ -6,7 +6,7 @@
 /*   By: hyeyukim <hyeyukim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/22 19:50:01 by hyeyukim          #+#    #+#             */
-/*   Updated: 2022/12/22 22:18:09 by hyeyukim         ###   ########.fr       */
+/*   Updated: 2022/12/30 07:06:14 by hyeyukim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ void	init_image(t_dev *dev, t_img *img, int w, int h)
 				&img->line_len, &img->endian);
 }
 
-void	mlx_pixel_put_image(t_img *img, int x, int y, int color)
+void	mlx_pixel_put_buffer(t_img *img, int x, int y, int color)
 {
 	char	*dst;
 
@@ -90,7 +90,7 @@ void	draw_low_line(const t_two_points *s, t_img *img)
 	pos[1] = s->p->y;
 	while (pos[0] <= s->q->x)
 	{
-		mlx_pixel_put_image(img, pos[0], pos[1], 0x00ff00);
+		mlx_pixel_put_buffer(img, pos[0], pos[1], 0x00ff00);
 		if (diff > 0)
 		{
 			pos[1] += y_inc;
@@ -116,7 +116,7 @@ void	draw_high_line(const t_two_points *s, t_img *img)
 	pos[1] = s->p->y;
 	while (pos[1] <= s->q->y)
 	{
-		mlx_pixel_put_image(img, pos[0], pos[1], 0x00ff00);
+		mlx_pixel_put_buffer(img, pos[0], pos[1], 0x00ff00);
 		if (diff > 0)
 		{
 			pos[0] += x_inc;
@@ -128,7 +128,7 @@ void	draw_high_line(const t_two_points *s, t_img *img)
 	}	
 }
 
-void	mlx_draw_line(const t_point *p, const t_point *q, t_img *img)
+void	draw_line(const t_point *p, const t_point *q, t_img *img)
 {
 	const t_two_points	s1 = {p, q, q->x - p->x, q->y - p->y, \
 							abs(q->x - p->x), abs(q->y - p->y)};
@@ -167,13 +167,13 @@ void	project_to_image(t_screen *scr, t_img *img)
 			{
 			printf("x%d%d : %d %d\n", i, j,scr->p[i][j].x, scr->p[i][j + 1].x);
 			printf("y%d%d : %d %d\n", i, j,scr->p[i][j].y, scr->p[i][j + 1].y);
-				mlx_draw_line(&scr->p[i][j], &scr->p[i][j + 1], img);
+				draw_line(&scr->p[i][j], &scr->p[i][j + 1], img);
 			}
 			if (i != scr->h - 1)
 			{
 			printf("x%d%d : %d %d\n", i, j,  scr->p[i][j].x, scr->p[i + 1][j].x);
 			printf("y%d%d : %d %d\n", i, j, scr->p[i][j].y, scr->p[i + 1][j].y);
-				mlx_draw_line(&scr->p[i][j], &scr->p[i + 1][j], img);
+				draw_line(&scr->p[i][j], &scr->p[i + 1][j], img);
 			}
 		}
 	}
@@ -207,21 +207,21 @@ int main(void)
 	t_point point2;
 	point1 = (t_point){100, 100};
 	point2 = (t_point){150, 0};
-	mlx_draw_line(&point1, &point2, &img);
+	draw_line(&point1, &point2, &img);
 	point2 = (t_point){200, 50};
-	mlx_draw_line(&point1, &point2, &img);
+	draw_line(&point1, &point2, &img);
 	point2 = (t_point){200, 150};
-	mlx_draw_line(&point1, &point2, &img);
+	draw_line(&point1, &point2, &img);
 	point2 = (t_point){150, 200};
-	mlx_draw_line(&point1, &point2, &img);
+	draw_line(&point1, &point2, &img);
 	point2 = (t_point){50, 200};
-	mlx_draw_line(&point1, &point2, &img);
+	draw_line(&point1, &point2, &img);
 	point2 = (t_point){0, 150};
-	mlx_draw_line(&point1, &point2, &img);
+	draw_line(&point1, &point2, &img);
 	point2 = (t_point){0, 50};
-	mlx_draw_line(&point1, &point2, &img);
+	draw_line(&point1, &point2, &img);
 	point2 = (t_point){50, 0};
-	mlx_draw_line(&point1, &point2, &img);
+	draw_line(&point1, &point2, &img);
 	mlx_put_image_to_window(dev.mlx, dev.win, img.img, 100, 100);
 	mlx_loop(&dev.mlx);
 }

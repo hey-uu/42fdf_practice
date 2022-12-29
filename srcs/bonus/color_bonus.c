@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   color.c                                            :+:      :+:    :+:   */
+/*   color_bonus.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hyeyukim <hyeyukim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/30 07:52:23 by hyeyukim          #+#    #+#             */
-/*   Updated: 2022/12/30 07:52:26 by hyeyukim         ###   ########.fr       */
+/*   Created: 2022/12/30 07:53:27 by hyeyukim          #+#    #+#             */
+/*   Updated: 2022/12/30 07:53:32 by hyeyukim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
-#include "color.h"
+#include "fdf_bonus.h"
+#include "color_bonus.h"
 
 int	get_vertex_color(int max, int min, int z)
 {

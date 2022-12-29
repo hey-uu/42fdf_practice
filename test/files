@@ -3,64 +3,6 @@ color \
 			fdf_split \
 			initialize \
 			main \
-			mlx_draw \
-			mlx_utils \
-			parse_input \
-			transform1 \
-			transform2 \
-			utils_matrix \
-			utils_vector3 \
-			utils_vector4 \
-			
-bonus files
-color \
-			fdf_split \
-			initialize \
-			main \
-			mlx_draw \
-			mlx_utils \
-			parse_input \
-			transform1 \
-			transform2 \
-			utils_matrix \
-			utils_vector3 \
-			utils_vector4 \
-			mandatory files
-color \
-			fdf_split \
-			initialize \
-			main \
-			mlx_draw \
-			mlx_key_hooks \
-			mlx_utils \
-			process_input \
-			rotate \
-			transform1 \
-			transform2 \
-			utils_matrix \
-			utils_vector3 \
-			utils_vector4 \
-			
-bonus files
-color \
-			fdf_split \
-			initialize \
-			main \
-			mlx_draw \
-			mlx_key_hooks \
-			mlx_utils \
-			process_input \
-			rotate \
-			transform1 \
-			transform2 \
-			utils_matrix \
-			utils_vector3 \
-			utils_vector4 \
-			mandatory files
-color \
-			fdf_split \
-			initialize \
-			main \
 			menu \
 			mlx_draw \
 			mlx_key_hooks \
@@ -71,24 +13,26 @@ color \
 			transform2 \
 			utils_matrix \
 			utils_vector3 \
-			utils_vector4 \
+			utils_vector4_1 \
+			utils_vector4_2 \
 			view \
 			
 bonus files
-color \
-			fdf_split \
-			initialize \
-			main \
-			menu \
-			mlx_draw \
-			mlx_key_hooks \
-			mlx_mouse_hooks \
-			mlx_utils \
-			process_input \
-			transform1 \
-			transform2 \
-			utils_matrix \
-			utils_vector3 \
-			utils_vector4 \
-			view \
+color_bonus \
+			fdf_split_bonus \
+			initialize_bonus \
+			main_bonus \
+			menu_bonus \
+			mlx_draw_bonus \
+			mlx_key_hooks_bonus \
+			mlx_mouse_hooks_bonus \
+			mlx_utils_bonus \
+			process_input_bonus \
+			transform1_bonus \
+			transform2_bonus \
+			utils_matrix_bonus \
+			utils_vector3_bonus \
+			utils_vector4_1_bonus \
+			utils_vector4_2_bonus \
+			view_bonus \
 			

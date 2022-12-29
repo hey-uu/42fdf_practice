@@ -1,45 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   vector.h                                           :+:      :+:    :+:   */
+/*   matrix_bonus.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hyeyukim <hyeyukim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/20 12:19:17 by hyeyukim          #+#    #+#             */
-/*   Updated: 2022/12/29 22:52:58 by hyeyukim         ###   ########.fr       */
+/*   Created: 2022/12/20 13:52:59 by hyeyukim          #+#    #+#             */
+/*   Updated: 2022/12/30 07:51:39 by hyeyukim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef VECTOR_H
-# define VECTOR_H
+#ifndef MATRIX_BONUS_H
+# define MATRIX_BONUS_H
 
 /*-------------- STANDARD HEADERS ---------------*/
 # include <math.h>
-# include <stdio.h>
+
+/*----------- DEFINE MACRO CONSTANTS ------------*/
+# include "vector_bonus.h"
 
 /*------------- STRUCT DECLARATIONS --------------*/
-typedef struct s_vec3
+typedef struct s_mat3
 {
-	double	v[3];
-}	t_vec3;
+	double	m[3][3];
+}	t_mat3;
 
-typedef struct s_vec4
+typedef struct s_mat4
 {
-	double	v[4];
-}	t_vec4;
+	double	m[4][4];
+}	t_mat4;
 
 /*-------------- FUNCTION PROTOTYPES -------------*/
-// vector3
-double	vec3_norm(t_vec4 *u);
-t_vec4	vec3_normalize(t_vec4 *v);
 
-// vector4
-double	vec4_dot_product(t_vec4 *u, t_vec4 *v);
-t_vec4	vec4_subtract(t_vec4 *u, t_vec4 *v);
-t_vec4	vec4_scalar_mul(double alpha, t_vec4 *u);
-t_vec4	vec4_gram_shmidt(t_vec4 *u, t_vec4 *v);
-t_vec4	vec4_outer_product(t_vec4 *u, t_vec4 *v);
-t_vec4	vec4_add(t_vec4 *u, t_vec4 *v);
-int		vec4_equals(t_vec4 *u, t_vec4 *v);
+t_mat4	get_srt_matrix(double s, t_mat4 *r, t_vec4 *t);
+t_mat4	get_inv_tr_matrix(t_vec4 *d, t_vec4 *u, t_vec4 *s, t_vec4 *p);
+t_vec4	mat4_vec_mul(const t_mat4 *mat, t_vec4 *vec);
+t_mat4	mat4_mul(const t_mat4 *a, const t_mat4 *b);
 
 #endif

@@ -13,7 +13,7 @@ typedef struct s_img
 	int		endian;
 }			t_img;
 
-void	mlx_pixel_put_image(t_img *data, int x, int y, int color)
+void	mlx_pixel_put_buffer(t_img *data, int x, int y, int color)
 {
 	char	*dst;
 
@@ -31,7 +31,7 @@ int	main(void)
 	win = mlx_new_window(dev, XSIZE, YSIZE, "new window!");
 	img.img = mlx_new_image(dev, XSIZE, YSIZE);
 	img.addr = mlx_get_data_addr(img.img, &img.bits_per_pixel, &img.line_len, &img.endian);
-	mlx_pixel_put_image(&img, 5, 5, 0x00FF0000);
+	mlx_pixel_put_buffer(&img, 5, 5, 0x00FF0000);
 	mlx_put_image_to_window(dev, win, img.img, 0, 0);
 	printf("%d, %d, %d", img.bits_per_pixel, img.line_len, img.endian);
 	mlx_destroy_image(dev, img.img);

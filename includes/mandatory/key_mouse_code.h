@@ -6,12 +6,14 @@
 /*   By: hyeyukim <hyeyukim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/28 19:29:58 by hyeyukim          #+#    #+#             */
-/*   Updated: 2022/12/28 21:00:46 by hyeyukim         ###   ########.fr       */
+/*   Updated: 2022/12/30 07:11:07 by hyeyukim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef KEY_MOUSE_CODE_H
 # define KEY_MOUSE_CODE_H
+
+/*----------- DEFINE MACRO CONSTANTS ------------*/
 
 # define K_ESC 53
 

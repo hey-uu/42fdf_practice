@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   transform2.c                                       :+:      :+:    :+:   */
+/*   transform2_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hyeyukim <hyeyukim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 01:37:21 by hyeyukim          #+#    #+#             */
-/*   Updated: 2022/12/30 06:51:14 by hyeyukim         ###   ########.fr       */
+/*   Updated: 2022/12/30 07:12:15 by hyeyukim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
-#include "color.h"
+#include "fdf_bonus.h"
+#include "color_bonus.h"
 
 int	round_to_int(double x)
 {

@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mlx_utils.c                                        :+:      :+:    :+:   */
+/*   mlx_utils_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hyeyukim <hyeyukim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/30 07:52:58 by hyeyukim          #+#    #+#             */
-/*   Updated: 2022/12/30 08:01:33 by hyeyukim         ###   ########.fr       */
+/*   Created: 2022/12/30 07:54:10 by hyeyukim          #+#    #+#             */
+/*   Updated: 2022/12/30 07:54:12 by hyeyukim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#include "fdf_bonus.h"
 #include "mlx.h"
-#include "key_mouse_code.h"
+#include "key_mouse_code_bonus.h"
 
 void	mlx_pixel_put_buffer(t_img *img, int x, int y, int color)
 {

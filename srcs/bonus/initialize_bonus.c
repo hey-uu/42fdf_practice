@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   initialize.c                                       :+:      :+:    :+:   */
+/*   initialize_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hyeyukim <hyeyukim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/30 07:52:32 by hyeyukim          #+#    #+#             */
-/*   Updated: 2022/12/30 08:01:15 by hyeyukim         ###   ########.fr       */
+/*   Created: 2022/12/30 07:53:41 by hyeyukim          #+#    #+#             */
+/*   Updated: 2022/12/30 07:53:43 by hyeyukim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#include "fdf_bonus.h"
 #include "mlx.h"
 
 void	init_device_and_image(t_dev *dev, t_img *img)
@@ -79,7 +79,7 @@ void	initialize_setting(t_data *data)
 	set_vertex_color(data->vertex, data);
 	init_device_and_image(&data->dev, &data->img);
 	data->img.buff = \
-			ft_calloc(I_W * I_H * data->img.bytes_per_pixel, sizeof(char));
+		ft_calloc(I_W * I_H * data->img.bytes_per_pixel, sizeof(char));
 	init_screen(data);
 	init_transformation(data);
 }

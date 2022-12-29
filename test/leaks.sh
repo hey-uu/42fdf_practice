@@ -1,3 +1,6 @@
+#! /bin/bash
+
+cd ..
 while :
 do
 	leaks fdf

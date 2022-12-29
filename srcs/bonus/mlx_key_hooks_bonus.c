@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mlx_key_hooks.c                                    :+:      :+:    :+:   */
+/*   mlx_key_hooks_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hyeyukim <hyeyukim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/30 07:52:43 by hyeyukim          #+#    #+#             */
-/*   Updated: 2022/12/30 07:52:46 by hyeyukim         ###   ########.fr       */
+/*   Created: 2022/12/30 07:53:58 by hyeyukim          #+#    #+#             */
+/*   Updated: 2022/12/30 07:53:59 by hyeyukim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
-#include "key_mouse_code.h"
+#include "fdf_bonus.h"
+#include "key_mouse_code_bonus.h"
 
 void	key_hook_object_scales(int idx, t_data *data)
 {
