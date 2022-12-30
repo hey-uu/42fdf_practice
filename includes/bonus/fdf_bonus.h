@@ -6,7 +6,7 @@
 /*   By: hyeyukim <hyeyukim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/16 20:57:20 by hyeyukim          #+#    #+#             */
-/*   Updated: 2022/12/30 07:51:15 by hyeyukim         ###   ########.fr       */
+/*   Updated: 2022/12/30 12:09:53 by hyeyukim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@
 # ifndef FT_INT_MIN
 #  define FT_INT_MIN -2147483648
 # endif
-# define FT_PI27 0.11635528346628863846
+# define ROTATE 0.11635528346628863846
 # define ALPHA 500
 # define RATIO 0.87
 

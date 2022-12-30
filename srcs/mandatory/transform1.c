@@ -6,7 +6,7 @@
 /*   By: hyeyukim <hyeyukim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/30 07:53:07 by hyeyukim          #+#    #+#             */
-/*   Updated: 2022/12/30 08:01:42 by hyeyukim         ###   ########.fr       */
+/*   Updated: 2022/12/30 15:10:18 by hyeyukim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,16 +63,13 @@ void	transform(t_data *s, int opt)
 void	rotate(t_object *obj, double theta, int axis)
 {
 	const double	t[2] = {cos(theta), sin(theta)};
-	t_mat4			rot;
+	t_mat3			rot;
 
 	if (axis == 0)
-		rot = (t_mat4){{{1, 0, 0, 0}, {0, t[0], t[1], 0}, \
-						{0, -t[1], t[0], 0}, {0, 0, 0, 1}}};
+		rot = (t_mat3){{{1, 0, 0}, {0, t[0], t[1]}, {0, -t[1], t[0]}}};
 	else if (axis == 1)
-		rot = (t_mat4){{{t[0], 0, t[1], 0}, {0, 1, 0, 0}, \
-						{-t[1], 0, t[0], 0}, {0, 0, 0, 1}}};
+		rot = (t_mat3){{{t[0], 0, t[1]}, {0, 1, 0}, {-t[1], 0, t[0]}}};
 	else
-		rot = (t_mat4){{{t[0], -t[1], 0, 0}, {t[1], t[0], 0, 0}, \
-						{0, 0, 1, 0}, {0, 0, 0, 1}}};
-	obj->orientation = mat4_mul(&rot, &obj->orientation);
+		rot = (t_mat3){{{t[0], -t[1], 0}, {t[1], t[0], 0}, {0, 0, 1}}};
+	obj->orientation = mat3_mul(&rot, &obj->orientation);
 }

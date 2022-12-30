@@ -6,7 +6,7 @@
 /*   By: hyeyukim <hyeyukim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/30 07:53:58 by hyeyukim          #+#    #+#             */
-/*   Updated: 2022/12/30 07:53:59 by hyeyukim         ###   ########.fr       */
+/*   Updated: 2022/12/30 12:09:53 by hyeyukim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	key_hook_object(int idx, t_data *data)
 {
 	static double	consts[12] = {\
 					-20, 20, -20, 20, -20, 20, \
-					-FT_PI27, FT_PI27, -FT_PI27, FT_PI27, -FT_PI27, FT_PI27};
+					-ROTATE, ROTATE, -ROTATE, ROTATE, -ROTATE, ROTATE};
 
 	if (idx == 0)
 		init_object(&data->obj, data);

@@ -6,7 +6,7 @@
 /*   By: hyeyukim <hyeyukim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 16:49:22 by hyeyukim          #+#    #+#             */
-/*   Updated: 2022/12/27 16:49:34 by hyeyukim         ###   ########.fr       */
+/*   Updated: 2022/12/30 12:11:19 by hyeyukim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,26 @@ t_mat4	mat4_mul(const t_mat4 *a, const t_mat4 *b)
 	{
 		j = -1;
 		while (++j < 4)
+		{
+			c.m[i][j] = vec4_dot_product(\
+			&(t_vec4){{a->m[i][0], a->m[i][1], a->m[i][2], a->m[i][3]}}, \
+			&(t_vec4){{b->m[0][j], b->m[1][j], b->m[2][j], b->m[3][j]}});
+		}
+	}
+	return (c);
+}
+
+t_mat4	mat3_mul(const t_mat3 *a, const t_mat4 *b)
+{
+	t_mat4	c;
+	int		i;
+	int		j;
+
+	i = -1;
+	while (++i < 3)
+	{
+		j = -1;
+		while (++j < 3)
 		{
 			c.m[i][j] = vec4_dot_product(\
 			&(t_vec4){{a->m[i][0], a->m[i][1], a->m[i][2], a->m[i][3]}}, \

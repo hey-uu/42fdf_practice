@@ -6,7 +6,7 @@
 /*   By: hyeyukim <hyeyukim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/30 07:52:43 by hyeyukim          #+#    #+#             */
-/*   Updated: 2022/12/30 07:52:46 by hyeyukim         ###   ########.fr       */
+/*   Updated: 2022/12/30 15:10:26 by hyeyukim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	key_hook_object(int idx, t_data *data)
 {
 	static double	consts[12] = {\
 					-20, 20, -20, 20, -20, 20, \
-					-FT_PI27, FT_PI27, -FT_PI27, FT_PI27, -FT_PI27, FT_PI27};
+					-ROTATE, ROTATE, -ROTATE, ROTATE, -ROTATE, ROTATE};
 
 	if (idx == 0)
 		init_object(&data->obj, data);
@@ -51,9 +51,9 @@ void	key_hook_camera(int idx, t_data *data)
 		init_camera_to_isometric_view(&data->cam, idx - 1);
 	else if (idx <= 14)
 		data->cam.pos.v[(idx - 9) / 2] += consts[idx - 9];
-	else if (idx == 15)
+	else if (idx <= 15)
 		data->cam.look_at = (t_vec4){{0, 0, 0, 1}};
-	else
+	else if (idx <= 16)
 		data->cam.look_at = data->obj.pos;
 	transform(data, CAM_CHANGE);
 }
@@ -67,7 +67,7 @@ int	key_press_hooks(int key, t_data *data)
 				K_A, K_S, K_D, K_F, K_G, K_H, \
 				K_0, K_1, K_2, K_3, K_4, K_5, K_6, K_7, K_8, \
 				K_Z, K_X, K_C, K_V, K_B, K_N, \
-				K_O, K_P};
+				K_O, K_P, K_RIGHT, K_LEFT};
 	int			i;
 
 	i = -1;
